@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29418.71
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Biograf_Booking_Client", "Biograf_Booking_Client\Biograf_Booking_Client.csproj", "{C6BF50CE-0B85-4B03-B45C-CFD886942992}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Biograf_Booking_Server", "Biograf_Booking_Server\Biograf_Booking_Server.csproj", "{9B613FE7-2580-433A-8D0C-D6660A9221A9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C6BF50CE-0B85-4B03-B45C-CFD886942992}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6BF50CE-0B85-4B03-B45C-CFD886942992}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6BF50CE-0B85-4B03-B45C-CFD886942992}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6BF50CE-0B85-4B03-B45C-CFD886942992}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B613FE7-2580-433A-8D0C-D6660A9221A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B613FE7-2580-433A-8D0C-D6660A9221A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B613FE7-2580-433A-8D0C-D6660A9221A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B613FE7-2580-433A-8D0C-D6660A9221A9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7FC3A680-3F06-48E4-AF14-0550E90F930F}
+	EndGlobalSection
+EndGlobal
