@@ -43,5 +43,13 @@ namespace Biograf_Booking_Client.Model
             get { return MovieLength; }
             set { MovieLength = value; }
         }
+        
+
+        public String ImagePath
+        {
+            get { return ImagePath; }
+            set { ImagePath = value; }
+        }
+
     }
 }
