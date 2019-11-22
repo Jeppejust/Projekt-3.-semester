@@ -19,6 +19,7 @@ namespace Biograf_Booking_Server.Service
         Employee GetEmployeeById(int SearchId);
         [OperationContract]
         bool LogOn(string user, string pass);
-
+        [OperationContract]
+        List<Movie> GetMovies();
     }
 }

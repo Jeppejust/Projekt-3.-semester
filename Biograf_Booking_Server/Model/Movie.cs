@@ -4,44 +4,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WPF_Client_Project.Model
+namespace Biograf_Booking_Server.Model
 {
-    class Movie
+    public class Movie
     {
-        public string Title
-        {
-            get { return Title; }
-            set { Title = value; }
-        }
-        public string Resume
-        {
-            get { return Resume; }
-            set { Resume = value; }
-        }
-        public int PremiereDate
-        {
-            get { return PremiereDate; }
-            set { PremiereDate = value; }
-        }
-        public string Genre
-        {
-            get { return Genre; }
-            set { Genre = value; }
-        }
-        public string Instructor
-        {
-            get { return Instructor; }
-            set { Instructor = value; }
-        }
-        public int MovieId
-        {
-            get { return MovieId; }
-            set { MovieId = value; }
-        }
-        public int MovieLength
-        {
-            get { return MovieLength; }
-            set { MovieLength = value; }
-        }
+        
+        public string Title { get; set; }
+
+        public string Resume { get; set; }
+
+        public DateTime PremiereDate { get; set; }
+
+        public string Genre { get; set; }
+
+        public int MovieId { get; set; }
+
+        public int MovieLength { get; set; }
+        public string ImagePath { get; set; }
+
     }
 }
