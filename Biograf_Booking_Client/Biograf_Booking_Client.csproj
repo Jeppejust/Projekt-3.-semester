@@ -78,7 +78,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Connected Services\WCFService\Reference.cs">
+    <Compile Include="Connected Services\PersonService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -124,22 +124,25 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Connected Services\WCFService\Biograf_Booking_Client.WCFService.Customer.datasource">
+    <None Include="Connected Services\PersonService\Biograf_Booking_Client.PersonService.Customer.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\WCFService\Biograf_Booking_Client.WCFService.Employee.datasource">
+    <None Include="Connected Services\PersonService\Biograf_Booking_Client.PersonService.Employee.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\WCFService\item.xsd">
+    <None Include="Connected Services\PersonService\Biograf_Booking_Client.PersonService.Movie.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\PersonService\item.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\WCFService\item1.xsd">
+    <None Include="Connected Services\PersonService\item1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\WCFService\item2.xsd">
+    <None Include="Connected Services\PersonService\item2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\WCFService\PersonService.wsdl" />
+    <None Include="Connected Services\PersonService\PersonService.wsdl" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -148,9 +151,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\WCFService\" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="View\Home.xaml">
@@ -178,21 +178,6 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\WCFService\item.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\WCFService\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\WCFService\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\WCFService\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Resources\startrek.jpg" />
     <Resource Include="Resources\terminator-dark-fate-plakat.jpg" />
     <Resource Include="Resources\toy_story_4_payoffplakat_dk.jpg" />
@@ -207,6 +192,24 @@
     <Resource Include="Resources\jokerplakatny.jpg" />
     <Resource Include="Resources\le-mans-plakat.jpg" />
     <Resource Include="Resources\midway-plakat.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\PersonService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\PersonService\item.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\PersonService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\PersonService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\PersonService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

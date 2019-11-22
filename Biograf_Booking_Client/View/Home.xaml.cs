@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Biograf_Booking_Client;
 using Biograf_Booking_Client.Controller;
+using Biograf_Booking_Client.PersonService;
 
 namespace Biograf_Booking_Client.View
 {
@@ -25,11 +26,13 @@ namespace Biograf_Booking_Client.View
         {
             InitializeComponent();
             MovieCtrl movieCtrl = new MovieCtrl();
-            var movies = movieCtrl.GetMovies();
-            if (movies.Count > 0)
-            {
-                ListViewMovies.ItemsSource = movies;
-            }
+            var movies = movieCtrl.GetMovies();;
+            ShowMovies(movies);
         }
+        public void ShowMovies(List<Movie> movies)
+        {
+            if (movies != null)
+                ListViewMovies.ItemsSource = movies;
+        } // Resources/jokerplakatny.jpg
     }
 }

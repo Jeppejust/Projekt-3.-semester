@@ -22,14 +22,14 @@
           <ItemsControl x:Name="ListViewMovies" ItemsSource="{Binding Movie}">
             <ItemsControl.ItemTemplate>
               <DataTemplate>
-                <Border Margin="10" Width="170" Height="210">
+                <Border Margin="10" Width="170" Height="310">
                   <StackPanel>
                     <Border Width="150" Height="200" CornerRadius="5" Margin="5">
                       <Border.Effect>
                         <DropShadowEffect ShadowDepth="1"/>
                       </Border.Effect>
                       <Border.Background>
-                        <ImageBrush ImageSource="{Binding Image}"/>
+                        <ImageBrush ImageSource="{Binding ImagePath}"/>
                       </Border.Background>
                     </Border>
                     <TextBlock Margin="5 0" Text="{Binding Title}" FontSize="20"/>

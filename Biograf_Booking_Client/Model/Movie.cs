@@ -8,6 +8,7 @@ namespace Biograf_Booking_Client.Model
 {
     class Movie
     {
+
         public string Title
         {
             get { return Title; }

@@ -1,5 +1,5 @@
-﻿using Biograf_Booking_Client.Model;
-using Biograf_Booking_Client.WCFService;
+﻿
+using Biograf_Booking_Client.PersonService;
 using System;
 using System.Collections.Generic;
 using System.Linq;
