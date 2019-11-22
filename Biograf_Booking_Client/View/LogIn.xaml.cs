@@ -27,16 +27,19 @@ namespace Biograf_Booking_Client.View
             public LogIn()
         {
             empCtrl = new EmployeeCtrl();
+
             InitializeComponent();
-            
         }
+
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
             string Username = tbUsername.Text;
-            string Password = tbPassword.Text;
+            string Password = tbPassword.Password;
             bool Login = false;
             Login = empCtrl.Login(Username, Password);
+
+
             if (Login==false)
             {
                 MessageBox.Show("Your username or password was incorrect");
@@ -48,6 +51,11 @@ namespace Biograf_Booking_Client.View
                 Close();
                 
             }
+        }
+
+        private void tbPassword_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }
