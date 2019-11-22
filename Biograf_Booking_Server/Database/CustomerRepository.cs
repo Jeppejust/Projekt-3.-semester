@@ -22,8 +22,6 @@ namespace Biograf_Booking_Server.Database
                 con.Open();
 
                 Customers = con.Query<Customer>(sqlGetAllCustomers).ToList();
-                con.Close();
-                con.Dispose();
                 return Customers;
             }
         }

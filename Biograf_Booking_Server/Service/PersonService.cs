@@ -14,6 +14,7 @@ namespace Biograf_Booking_Server.Service
     {
         private EmployeeCtrl EmpCtrl = new EmployeeCtrl();
         private CustomerCtrl CustCtrl = new CustomerCtrl();
+        private MovieCtrl MovCtrl = new MovieCtrl();
 
         //[OperationBehavior(TransactionScopeRequired = true)]
         public List<Customer> GetCustomers()
@@ -34,6 +35,10 @@ namespace Biograf_Booking_Server.Service
         public bool LogOn(string user, string pass)
         {
             return EmpCtrl.ComparePassword(user,pass);
+        }
+        public List<Movie> GetMovies()
+        {
+            return MovCtrl.GetMovies();
         }
     }
 }
