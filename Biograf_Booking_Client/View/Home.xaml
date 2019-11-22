@@ -19,7 +19,7 @@
       <StackPanel>
         <TextBlock Text="Movies" Margin="10" FontSize="22" FontWeight="Medium"/>
         <StackPanel Margin="20 0">
-          <ItemsControl x:Name="ListViewProducts" ItemsSource="{Binding Product}">
+          <ItemsControl x:Name="ListViewMovies" ItemsSource="{Binding Movie}">
             <ItemsControl.ItemTemplate>
               <DataTemplate>
                 <Border Margin="10" Width="170" Height="210">
@@ -32,7 +32,7 @@
                         <ImageBrush ImageSource="{Binding Image}"/>
                       </Border.Background>
                     </Border>
-                    <TextBlock Margin="5 0" Text="{Binding Name}" FontSize="20"/>
+                    <TextBlock Margin="5 0" Text="{Binding Title}" FontSize="20"/>
                   </StackPanel>
                 </Border>
               </DataTemplate>

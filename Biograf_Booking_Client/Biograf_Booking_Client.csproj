@@ -53,6 +53,9 @@
     <StartupObject>Biograf_Booking_Client.App</StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.2.0.30\lib\net461\Dapper.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Runtime.Serialization" />
@@ -81,6 +84,7 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Controller\EmployeeCtrl.cs" />
+    <Compile Include="Controller\MovieCtrl.cs" />
     <Compile Include="Model\Customer.cs" />
     <Compile Include="Model\Employee.cs" />
     <Compile Include="Model\Hall.cs" />
@@ -94,6 +98,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Service\EmployeeService.cs" />
+    <Compile Include="Service\MovieService.cs" />
     <Compile Include="View\Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
     </Compile>
@@ -135,6 +140,7 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\WCFService\PersonService.wsdl" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
