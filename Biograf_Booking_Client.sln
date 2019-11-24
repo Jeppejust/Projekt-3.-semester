@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.29418.71
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Biograf_Booking_Client", "Biograf_Booking_Client\Biograf_Booking_Client.csproj", "{C6BF50CE-0B85-4B03-B45C-CFD886942992}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9B613FE7-2580-433A-8D0C-D6660A9221A9} = {9B613FE7-2580-433A-8D0C-D6660A9221A9}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Biograf_Booking_Server", "Biograf_Booking_Server\Biograf_Booking_Server.csproj", "{9B613FE7-2580-433A-8D0C-D6660A9221A9}"
 EndProject
