@@ -32,7 +32,7 @@
                         <ImageBrush ImageSource="{Binding ImagePath}"/>
                       </Border.Background>
                     </Border>
-                    <TextBlock Margin="5 0" Text="{Binding Title}" FontSize="20" Foreground="White"/>
+                    <TextBlock Margin="5 0" Text="{Binding Title}" FontSize="20" Foreground="White" TextAlignment="Center"/>
                   </StackPanel>
                 </Border>
               </DataTemplate>
