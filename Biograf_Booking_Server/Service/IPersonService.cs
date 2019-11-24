@@ -20,6 +20,8 @@ namespace Biograf_Booking_Server.Service
         [OperationContract]
         bool LogOn(string user, string pass);
         [OperationContract]
-        List<Movie> GetMovies();
+        List<Movie> GetAllMovies();
+        [OperationContract]
+        Movie GetMovie(int id);
     }
 }

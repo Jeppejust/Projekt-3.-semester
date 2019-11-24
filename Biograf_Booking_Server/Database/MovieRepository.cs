@@ -26,5 +26,26 @@ namespace Biograf_Booking_Server.Database
                 return Movies;
             }
         }
+        public Movie GetMovie(int id)
+        {
+            string sqlGetMovie = "select * from tblMovie where MovieId = @id";
+            using (con = new SqlConnection(DataBase.DbConnectionString))
+            {
+                Movie movie = new Movie();
+                con.Open();
+
+                try
+                {
+                    movie = con.Query<Movie>(sqlGetMovie, new { id }).FirstOrDefault();
+                }
+                catch (Exception)
+                {
+                    movie = null;
+                }
+                con.Close();
+                con.Dispose();
+                return movie;
+            }
+        }
     }
 }

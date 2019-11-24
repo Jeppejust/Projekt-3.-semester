@@ -10,5 +10,7 @@ namespace Biograf_Booking_Server.Database
     interface IMovieRepository<T> where T : class
     {
         List<Movie> GetMovies();
+        Movie GetMovie(int id);
     }
+
 }

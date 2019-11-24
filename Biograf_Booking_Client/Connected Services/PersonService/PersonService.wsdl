@@ -31,11 +31,17 @@
   <wsdl:message name="IPersonService_LogOn_OutputMessage">
     <wsdl:part name="parameters" element="tns:LogOnResponse" />
   </wsdl:message>
-  <wsdl:message name="IPersonService_GetMovies_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetMovies" />
+  <wsdl:message name="IPersonService_GetAllMovies_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllMovies" />
   </wsdl:message>
-  <wsdl:message name="IPersonService_GetMovies_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetMoviesResponse" />
+  <wsdl:message name="IPersonService_GetAllMovies_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllMoviesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPersonService_GetMovie_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMovie" />
+  </wsdl:message>
+  <wsdl:message name="IPersonService_GetMovie_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMovieResponse" />
   </wsdl:message>
   <wsdl:portType name="IPersonService">
     <wsdl:operation name="GetEmployees">
@@ -54,9 +60,13 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IPersonService/LogOn" message="tns:IPersonService_LogOn_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IPersonService/LogOnResponse" message="tns:IPersonService_LogOn_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetMovies">
-      <wsdl:input wsaw:Action="http://tempuri.org/IPersonService/GetMovies" message="tns:IPersonService_GetMovies_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IPersonService/GetMoviesResponse" message="tns:IPersonService_GetMovies_OutputMessage" />
+    <wsdl:operation name="GetAllMovies">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPersonService/GetAllMovies" message="tns:IPersonService_GetAllMovies_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPersonService/GetAllMoviesResponse" message="tns:IPersonService_GetAllMovies_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMovie">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPersonService/GetMovie" message="tns:IPersonService_GetMovie_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPersonService/GetMovieResponse" message="tns:IPersonService_GetMovie_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IPersonService" type="tns:IPersonService">
@@ -97,8 +107,17 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetMovies">
-      <soap:operation soapAction="http://tempuri.org/IPersonService/GetMovies" style="document" />
+    <wsdl:operation name="GetAllMovies">
+      <soap:operation soapAction="http://tempuri.org/IPersonService/GetAllMovies" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMovie">
+      <soap:operation soapAction="http://tempuri.org/IPersonService/GetMovie" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

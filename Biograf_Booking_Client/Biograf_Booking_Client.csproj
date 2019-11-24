@@ -190,7 +190,6 @@
     <Resource Include="Resources\hustlers-plakat.jpg" />
     <Resource Include="Resources\jagtsaeson_plakat.jpg" />
     <Resource Include="Resources\jokerplakatny.jpg" />
-    <Resource Include="Resources\le-mans-plakat.jpg" />
     <Resource Include="Resources\midway-plakat.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -210,6 +209,13 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\batman.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\le-mans2-plakat.jpg" />
+    <Resource Include="Resources\le_mans1_plakat.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

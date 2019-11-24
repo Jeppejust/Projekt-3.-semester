@@ -10,11 +10,16 @@ namespace Biograf_Booking_Client.Service
 {
     class MovieService
     {
-        public List<Movie> GetMovies()
+        public List<Movie> GetAllMovies()
         {
             PersonServiceClient proxy = new PersonServiceClient();
-            return proxy.GetMovies();
+            return proxy.GetAllMovies();
 
+        }
+        public Movie GetMovie(int id)
+        {
+            PersonServiceClient proxy = new PersonServiceClient();
+            return proxy.GetMovie(id);
         }
     }
 }

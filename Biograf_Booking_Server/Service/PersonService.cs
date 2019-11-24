@@ -36,9 +36,13 @@ namespace Biograf_Booking_Server.Service
         {
             return EmpCtrl.ComparePassword(user,pass);
         }
-        public List<Movie> GetMovies()
+        public List<Movie> GetAllMovies()
         {
-            return MovCtrl.GetMovies();
+            return MovCtrl.GetAllMovies();
+        }
+        public Movie GetMovie(int id)
+        {
+            return MovCtrl.GetMovie(id);
         }
     }
 }

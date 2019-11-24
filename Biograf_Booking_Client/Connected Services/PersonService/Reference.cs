@@ -371,11 +371,17 @@ namespace Biograf_Booking_Client.PersonService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPersonService/LogOn", ReplyAction="http://tempuri.org/IPersonService/LogOnResponse")]
         System.Threading.Tasks.Task<bool> LogOnAsync(string user, string pass);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPersonService/GetMovies", ReplyAction="http://tempuri.org/IPersonService/GetMoviesResponse")]
-        System.Collections.Generic.List<Biograf_Booking_Client.PersonService.Movie> GetMovies();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPersonService/GetAllMovies", ReplyAction="http://tempuri.org/IPersonService/GetAllMoviesResponse")]
+        System.Collections.Generic.List<Biograf_Booking_Client.PersonService.Movie> GetAllMovies();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPersonService/GetMovies", ReplyAction="http://tempuri.org/IPersonService/GetMoviesResponse")]
-        System.Threading.Tasks.Task<System.Collections.Generic.List<Biograf_Booking_Client.PersonService.Movie>> GetMoviesAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPersonService/GetAllMovies", ReplyAction="http://tempuri.org/IPersonService/GetAllMoviesResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<Biograf_Booking_Client.PersonService.Movie>> GetAllMoviesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPersonService/GetMovie", ReplyAction="http://tempuri.org/IPersonService/GetMovieResponse")]
+        Biograf_Booking_Client.PersonService.Movie GetMovie(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPersonService/GetMovie", ReplyAction="http://tempuri.org/IPersonService/GetMovieResponse")]
+        System.Threading.Tasks.Task<Biograf_Booking_Client.PersonService.Movie> GetMovieAsync(int id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -437,12 +443,20 @@ namespace Biograf_Booking_Client.PersonService {
             return base.Channel.LogOnAsync(user, pass);
         }
         
-        public System.Collections.Generic.List<Biograf_Booking_Client.PersonService.Movie> GetMovies() {
-            return base.Channel.GetMovies();
+        public System.Collections.Generic.List<Biograf_Booking_Client.PersonService.Movie> GetAllMovies() {
+            return base.Channel.GetAllMovies();
         }
         
-        public System.Threading.Tasks.Task<System.Collections.Generic.List<Biograf_Booking_Client.PersonService.Movie>> GetMoviesAsync() {
-            return base.Channel.GetMoviesAsync();
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<Biograf_Booking_Client.PersonService.Movie>> GetAllMoviesAsync() {
+            return base.Channel.GetAllMoviesAsync();
+        }
+        
+        public Biograf_Booking_Client.PersonService.Movie GetMovie(int id) {
+            return base.Channel.GetMovie(id);
+        }
+        
+        public System.Threading.Tasks.Task<Biograf_Booking_Client.PersonService.Movie> GetMovieAsync(int id) {
+            return base.Channel.GetMovieAsync(id);
         }
     }
 }

@@ -26,7 +26,7 @@ namespace Biograf_Booking_Client.View
         {
             InitializeComponent();
             MovieCtrl movieCtrl = new MovieCtrl();
-            var movies = movieCtrl.GetMovies();;
+            var movies = movieCtrl.GetAllMovies();;
             ShowMovies(movies);
         }
         public void ShowMovies(List<Movie> movies)
@@ -34,5 +34,10 @@ namespace Biograf_Booking_Client.View
             if (movies != null)
                 ListViewMovies.ItemsSource = movies;
         } // Resources/jokerplakatny.jpg
+
+        private void Border_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            
+        }
     }
 }

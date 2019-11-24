@@ -12,9 +12,14 @@ namespace Biograf_Booking_Client.Controller
     class MovieCtrl
     {
         MovieService movieService = new MovieService();
-        public List<Movie> GetMovies()
+        public List<Movie> GetAllMovies()
         {
-            return movieService.GetMovies();
+            return movieService.GetAllMovies();
+        }
+        public Movie GetMovieById(int id)
+        {
+            return movieService.GetMovie(id);
         }
     }
+
 }
