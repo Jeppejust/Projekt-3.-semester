@@ -11,21 +11,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace BookingSeats
+namespace Biograf_Booking_Client.View
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for SeatBooking.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class SeatBooking : Window
     {
-
         public ObservableCollection<int> Seats { get; private set; }
         private List<int> MarkedSeats = new List<int>();
 
-        public MainWindow()
+        public SeatBooking()
         {
             Seats = new ObservableCollection<int>();
             for (int i = 1; i <= 84; i++)
@@ -34,7 +32,7 @@ namespace BookingSeats
             InitializeComponent();
         }
 
-        
+
 
         private void TextBlock_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -42,8 +40,12 @@ namespace BookingSeats
             var yy = xx.Text;
             SolidColorBrush b = xx.Background as SolidColorBrush;
             Color x = b.Color;
-            if (x == Colors.Yellow){
+            if (x == Colors.Yellow)
+            {
                 xx.Background = new SolidColorBrush(Colors.ForestGreen);
+                int id;
+                id = Int32.Parse(xx.Text);
+                MarkedSeats.Remove(id);
             }
             else
             {
@@ -51,11 +53,12 @@ namespace BookingSeats
                 int id;
                 id = Int32.Parse(xx.Text);
                 MarkedSeats.Add(id);
-            }  
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+
             foreach (int i in MarkedSeats)
             {
 
@@ -64,12 +67,4 @@ namespace BookingSeats
 
         }
     }
-    public class Seat
-    {
-        public string seatId { get; set; }
-        public int MyProperty { get; set; }
-    }
 }
-
-
-
