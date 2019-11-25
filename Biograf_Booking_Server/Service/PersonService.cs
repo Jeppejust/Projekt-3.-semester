@@ -15,6 +15,7 @@ namespace Biograf_Booking_Server.Service
         private EmployeeCtrl EmpCtrl = new EmployeeCtrl();
         private CustomerCtrl CustCtrl = new CustomerCtrl();
         private MovieCtrl MovCtrl = new MovieCtrl();
+        private HallCtrl HCtrl = new HallCtrl();
 
         //[OperationBehavior(TransactionScopeRequired = true)]
         public List<Customer> GetCustomers()
@@ -43,6 +44,11 @@ namespace Biograf_Booking_Server.Service
         public Movie GetMovie(int id)
         {
             return MovCtrl.GetMovie(id);
+        }
+
+        public List<Hall> FindHalls(int id)
+        {
+            return HCtrl.FindHalls(id); 
         }
     }
 }
