@@ -23,5 +23,7 @@ namespace Biograf_Booking_Server.Service
         List<Movie> GetAllMovies();
         [OperationContract]
         Movie GetMovie(int id);
+        [OperationContract]
+        List<Hall> FindHalls(int id);
     }
 }

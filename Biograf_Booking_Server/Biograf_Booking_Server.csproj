@@ -64,12 +64,15 @@
   <ItemGroup>
     <Compile Include="Controller\CustomerCtrl.cs" />
     <Compile Include="Controller\EmployeeCtrl.cs" />
+    <Compile Include="Controller\HallCtrl.cs" />
     <Compile Include="Controller\MovieCtrl.cs" />
     <Compile Include="Database\CustomerRepository.cs" />
     <Compile Include="Database\DataBase.cs" />
+    <Compile Include="Database\HallRepository.cs" />
     <Compile Include="Database\ICustomerRepository.cs" />
     <Compile Include="Database\IEmployeeRepository.cs" />
     <Compile Include="Database\EmployeeRepository.cs" />
+    <Compile Include="Database\IHallRepository.cs" />
     <Compile Include="Database\IMovieRepository.cs" />
     <Compile Include="Database\MovieRepository.cs" />
     <Compile Include="Model\Customer.cs" />

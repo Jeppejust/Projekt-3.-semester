@@ -8,20 +8,21 @@ namespace Biograf_Booking_Server.Model
 {
     public class Hall
     {
-        public int HallId
+        public int HallId { get; set; }
+
+        public TimeSpan ShowTime { get; set; }
+
+        public int MovieId { get; set; }
+
+        private DateTime ShowDate;
+
+        public DateTime showDate
         {
-            get { return HallId; }
-            set { HallId = value; }
+            get { return ShowDate; }
+            set { ShowDate = value; }
         }
-        public int ShowTime
-        {
-            get { return ShowTime; }
-            set { ShowTime = value; }
-        }
-        public int MovieId
-        {
-            get { return MovieId; }
-            set { MovieId = value; }
-        }
+        
+
+
     }
 }
