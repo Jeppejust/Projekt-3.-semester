@@ -99,6 +99,9 @@
     </Compile>
     <Compile Include="Service\EmployeeService.cs" />
     <Compile Include="Service\MovieService.cs" />
+    <Compile Include="View\ChooseHall.xaml.cs">
+      <DependentUpon>ChooseHall.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
     </Compile>
@@ -156,6 +159,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="View\ChooseHall.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Home.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

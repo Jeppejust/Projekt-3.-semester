@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Biograf_Booking_Client.Model
 {
-    class Movie
+    public class Movie
     {
 
         public string Title

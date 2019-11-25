@@ -23,23 +23,38 @@ namespace Biograf_Booking_Client.View
     /// </summary>
     public partial class Home : Window
     {
+        MovieCtrl movieCtrl = new MovieCtrl();
+        List<Movie> movies = new List<Movie>();
         public Home()
         {
             InitializeComponent();
-            MovieCtrl movieCtrl = new MovieCtrl();
-            var movies = movieCtrl.GetAllMovies();;
+            movies = movieCtrl.GetAllMovies();
             ShowMovies(movies);
         }
         public void ShowMovies(List<Movie> movies)
         {
             if (movies != null)
                 ListViewMovies.ItemsSource = movies;
-        } // Resources/jokerplakatny.jpg
+        }
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
         {
             var xx = sender as TextBlock;
-            MessageBox.Show(xx.Text);
+            Movie m = FindMovie(xx.Text);
+            ChooseHall ch = new ChooseHall(m);
+            ch.Show();
+        }
+        private Movie FindMovie(string title)
+        {
+            Movie movie = null;
+            foreach (Movie m in movies)
+            {
+                if (m.Title == title)
+                {
+                    movie = m;
+                }
+            }
+            return movie;
         }
     }
 }

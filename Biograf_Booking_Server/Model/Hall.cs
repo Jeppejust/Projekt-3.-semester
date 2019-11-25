@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WPF_Client_Project.Model
 {
-    class Hall
+    public class Hall
     {
         public int HallId
         {

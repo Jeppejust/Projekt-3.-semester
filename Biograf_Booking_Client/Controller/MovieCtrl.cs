@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using localM = Biograf_Booking_Client.Model;
 using Biograf_Booking_Client.Service;
 using Biograf_Booking_Client.PersonService;
+
 
 namespace Biograf_Booking_Client.Controller
 {
@@ -19,6 +19,11 @@ namespace Biograf_Booking_Client.Controller
         public Movie GetMovieById(int id)
         {
             return movieService.GetMovie(id);
+        }
+
+        internal List<Hall> FindHalls(int movieId)
+        {
+            return movieService.GetHalls(movieId);
         }
     }
 
