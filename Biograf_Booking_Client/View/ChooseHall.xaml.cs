@@ -12,7 +12,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Biograf_Booking_Client;
 using Biograf_Booking_Client.Controller;
-using Biograf_Booking_Client.Model;
 using Biograf_Booking_Client.PersonService;
 
 namespace Biograf_Booking_Client.View
@@ -27,10 +26,16 @@ namespace Biograf_Booking_Client.View
         public ChooseHall(Movie m)
         {
             List<Hall> halls = new List<Hall>();
-            halls = FindHalls(m.MovieId);
-            ListViewHalls.ItemsSource = halls;
             InitializeComponent();
-            
+            try
+            {
+                halls = FindHalls(m.MovieId);
+                ListViewHalls.ItemsSource = halls;
+            }
+            catch (ArgumentNullException e)
+            {
+                MessageBox.Show("Didn't get a hall");
+            }
         }
         private List<Hall> FindHalls(int movieId)
         {

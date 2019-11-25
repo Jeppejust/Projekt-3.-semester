@@ -11,10 +11,11 @@ namespace Biograf_Booking_Client.Service
     {
         public bool Login(string username, string password)
         {
-            PersonServiceClient proxy = new PersonServiceClient();
-            bool verified = proxy.LogOn(username, password);
-            return verified;
-
+            using (PersonServiceClient proxy = new PersonServiceClient())
+            {
+                bool verified = proxy.LogOn(username, password);
+                return verified;
+            }
         }
     }
 }

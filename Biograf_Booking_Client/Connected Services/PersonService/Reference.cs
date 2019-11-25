@@ -343,6 +343,99 @@ namespace Biograf_Booking_Client.PersonService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Hall", Namespace="http://schemas.datacontract.org/2004/07/Biograf_Booking_Server.Model")]
+    [System.SerializableAttribute()]
+    public partial class Hall : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int HallIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int MovieIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.TimeSpan ShowTimeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime showDateField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int HallId {
+            get {
+                return this.HallIdField;
+            }
+            set {
+                if ((this.HallIdField.Equals(value) != true)) {
+                    this.HallIdField = value;
+                    this.RaisePropertyChanged("HallId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int MovieId {
+            get {
+                return this.MovieIdField;
+            }
+            set {
+                if ((this.MovieIdField.Equals(value) != true)) {
+                    this.MovieIdField = value;
+                    this.RaisePropertyChanged("MovieId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.TimeSpan ShowTime {
+            get {
+                return this.ShowTimeField;
+            }
+            set {
+                if ((this.ShowTimeField.Equals(value) != true)) {
+                    this.ShowTimeField = value;
+                    this.RaisePropertyChanged("ShowTime");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime showDate {
+            get {
+                return this.showDateField;
+            }
+            set {
+                if ((this.showDateField.Equals(value) != true)) {
+                    this.showDateField = value;
+                    this.RaisePropertyChanged("showDate");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="PersonService.IPersonService")]
     public interface IPersonService {
@@ -382,6 +475,12 @@ namespace Biograf_Booking_Client.PersonService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPersonService/GetMovie", ReplyAction="http://tempuri.org/IPersonService/GetMovieResponse")]
         System.Threading.Tasks.Task<Biograf_Booking_Client.PersonService.Movie> GetMovieAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPersonService/FindHalls", ReplyAction="http://tempuri.org/IPersonService/FindHallsResponse")]
+        System.Collections.Generic.List<Biograf_Booking_Client.PersonService.Hall> FindHalls(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPersonService/FindHalls", ReplyAction="http://tempuri.org/IPersonService/FindHallsResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<Biograf_Booking_Client.PersonService.Hall>> FindHallsAsync(int id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -457,6 +556,14 @@ namespace Biograf_Booking_Client.PersonService {
         
         public System.Threading.Tasks.Task<Biograf_Booking_Client.PersonService.Movie> GetMovieAsync(int id) {
             return base.Channel.GetMovieAsync(id);
+        }
+        
+        public System.Collections.Generic.List<Biograf_Booking_Client.PersonService.Hall> FindHalls(int id) {
+            return base.Channel.FindHalls(id);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<Biograf_Booking_Client.PersonService.Hall>> FindHallsAsync(int id) {
+            return base.Channel.FindHallsAsync(id);
         }
     }
 }

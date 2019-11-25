@@ -143,6 +143,9 @@
     <None Include="Connected Services\PersonService\Biograf_Booking_Client.PersonService.Employee.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\PersonService\Biograf_Booking_Client.PersonService.Hall.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\PersonService\Biograf_Booking_Client.PersonService.Movie.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

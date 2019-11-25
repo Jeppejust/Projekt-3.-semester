@@ -12,20 +12,25 @@ namespace Biograf_Booking_Client.Service
     {
         public List<Movie> GetAllMovies()
         {
-            PersonServiceClient proxy = new PersonServiceClient();
-            return proxy.GetAllMovies();
-
+            using(PersonServiceClient proxy = new PersonServiceClient())
+            {
+                return proxy.GetAllMovies();
+            }
         }
         public Movie GetMovie(int id)
         {
-            PersonServiceClient proxy = new PersonServiceClient();
-            return proxy.GetMovie(id);
+            using (PersonServiceClient proxy = new PersonServiceClient())
+            {
+                return proxy.GetMovie(id);
+            }
         }
 
         internal List<Hall> FindHalls(int movieId)
         {
-            PersonServiceClient proxy = new PersonServiceClient();
-            return proxy.FindHalls(movieId);
+            using (PersonServiceClient proxy = new PersonServiceClient())
+            {
+                return proxy.FindHalls(movieId);
+            }
         }
     }
 }
