@@ -22,9 +22,10 @@ namespace Biograf_Booking_Client.Service
             return proxy.GetMovie(id);
         }
 
-        internal List<Hall> GetHalls(int movieId)
+        internal List<Hall> FindHalls(int movieId)
         {
-            throw new NotImplementedException();
+            PersonServiceClient proxy = new PersonServiceClient();
+            return proxy.FindHalls(movieId);
         }
     }
 }

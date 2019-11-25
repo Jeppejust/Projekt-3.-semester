@@ -14,7 +14,6 @@ using Biograf_Booking_Client;
 using Biograf_Booking_Client.Controller;
 using Biograf_Booking_Client.Model;
 using Biograf_Booking_Client.PersonService;
-using Movie = Biograf_Booking_Client.PersonService.Movie;
 
 namespace Biograf_Booking_Client.View
 {
