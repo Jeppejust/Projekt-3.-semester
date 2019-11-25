@@ -21,7 +21,7 @@ namespace Biograf_Booking_Server.Controller
             return IMovRepo.GetMovies();
         }
 
-        internal Movie GetMovie(int id)
+        public Movie GetMovie(int id)
         {
             return IMovRepo.GetMovie(id);
         }

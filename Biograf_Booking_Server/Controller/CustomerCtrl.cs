@@ -19,10 +19,5 @@ namespace Biograf_Booking_Server.Controller
         {
             return ICustRepo.GetCustomers();
         }
-
-        internal void Dispose()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

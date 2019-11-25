@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WPF_Client_Project.Model
+namespace Biograf_Booking_Server.Model
 {
     class Hall
     {
