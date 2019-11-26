@@ -22,20 +22,59 @@ namespace Biograf_Booking_Client.View
     public partial class ChooseHall : Window
     {
         private PersonService.Movie m;
-
+        private Movie movie;
+        private List<Hall> halls = new List<Hall>();
         public ChooseHall(Movie m)
         {
-            List<Hall> halls = new List<Hall>();
+            movie = m;
+
             halls = FindHalls(m.MovieId);
-            ListViewHalls.ItemsSource = halls;
             InitializeComponent();
-            
+            ListViewHalls.ItemsSource = halls;
+
         }
         private List<Hall> FindHalls(int movieId)
         {
             MovieCtrl movieCtrl = new MovieCtrl();
             List<Hall> halls = movieCtrl.FindHalls(movieId);
             return halls;
+        }
+        private Hall FindHall(string t)
+        {
+            int i = Convert.ToInt32(t);
+            Hall hall = new Hall();
+            try
+            {
+                foreach (Hall h in halls)
+                {
+                    if (h.HallId == i)
+                    {
+                        hall = h;
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                hall = null;
+            }
+            return hall;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var xx = sender as Button;
+            string t = xx.Content.ToString();
+            Hall h = FindHall(t);
+            if (h!=null)
+            {
+                SeatBooking sb = new SeatBooking(movie, h);
+                sb.Show();
+                Close();
+            }
+            else
+            {
+                MessageBox.Show("Something went wrong");
+            }
         }
     }
 }

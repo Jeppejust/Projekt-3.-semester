@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:Biograf_Booking_Client.View"
         mc:Ignorable="d"
         Title="SeatBooking" Height="602.206" Width="800">
-    <StackPanel>
-        <TextBlock HorizontalAlignment="Center" Text="Sæde reservation" FontSize="24" Margin="0,60"/>
+    <StackPanel Background="#FF363636">
+        <TextBlock HorizontalAlignment="Center" Text="Sæde reservation" FontSize="24" Margin="0,60" Foreground="White"/>
 
         <ItemsControl ItemsSource="{Binding Seats}">
             <ItemsControl.ItemTemplate>
@@ -36,6 +36,5 @@
             </ItemsControl.ItemsPanel>
         </ItemsControl>
         <Button Content="Reserver sæder" Width="100" Click="Button_Click"/>
-        <Label x:Name="Test" Content="Label"/>
     </StackPanel>
 </Window>

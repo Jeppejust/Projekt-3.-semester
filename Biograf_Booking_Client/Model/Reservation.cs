@@ -33,11 +33,6 @@ namespace Biograf_Booking_Client.Model
             get { return MovieId; }
             set { MovieId = value; }
         }
-        public int SeatId
-        {
-            get { return SeatId; }
-            set { SeatId = value; }
-        }
 
     }
 }

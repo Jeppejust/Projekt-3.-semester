@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Biograf_Booking_Client.PersonService;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -23,7 +24,7 @@ namespace Biograf_Booking_Client.View
         public ObservableCollection<int> Seats { get; private set; }
         private List<int> MarkedSeats = new List<int>();
 
-        public SeatBooking()
+        public SeatBooking(Movie m, Hall h)
         {
             Seats = new ObservableCollection<int>();
             for (int i = 1; i <= 84; i++)

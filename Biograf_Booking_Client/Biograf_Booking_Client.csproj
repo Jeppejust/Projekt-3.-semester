@@ -137,6 +137,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include=".editorconfig" />
     <None Include="Connected Services\PersonService\Biograf_Booking_Client.PersonService.Customer.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
