@@ -27,10 +27,9 @@ namespace Biograf_Booking_Client.View
         {
             List<Hall> halls = new List<Hall>();
             halls = FindHalls(m.MovieId);
-            
-            InitializeComponent();
             ListViewHalls.ItemsSource = halls;
-
+            InitializeComponent();
+            
         }
         private List<Hall> FindHalls(int movieId)
         {
