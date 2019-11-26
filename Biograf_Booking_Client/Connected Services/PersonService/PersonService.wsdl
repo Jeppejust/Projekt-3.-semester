@@ -5,6 +5,7 @@
       <xsd:import schemaLocation="http://localhost:2112/?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:2112/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:2112/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Biograf_Booking_Server.Model" />
+      <xsd:import schemaLocation="http://localhost:2112/?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IPersonService_GetEmployees_InputMessage">
@@ -49,6 +50,24 @@
   <wsdl:message name="IPersonService_FindHalls_OutputMessage">
     <wsdl:part name="parameters" element="tns:FindHallsResponse" />
   </wsdl:message>
+  <wsdl:message name="IPersonService_FindAllReservations_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindAllReservations" />
+  </wsdl:message>
+  <wsdl:message name="IPersonService_FindAllReservations_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindAllReservationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPersonService_FindReservationById_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindReservationById" />
+  </wsdl:message>
+  <wsdl:message name="IPersonService_FindReservationById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindReservationByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPersonService_InsertReservation_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertReservation" />
+  </wsdl:message>
+  <wsdl:message name="IPersonService_InsertReservation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertReservationResponse" />
+  </wsdl:message>
   <wsdl:portType name="IPersonService">
     <wsdl:operation name="GetEmployees">
       <wsdl:input wsaw:Action="http://tempuri.org/IPersonService/GetEmployees" message="tns:IPersonService_GetEmployees_InputMessage" />
@@ -77,6 +96,18 @@
     <wsdl:operation name="FindHalls">
       <wsdl:input wsaw:Action="http://tempuri.org/IPersonService/FindHalls" message="tns:IPersonService_FindHalls_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IPersonService/FindHallsResponse" message="tns:IPersonService_FindHalls_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindAllReservations">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPersonService/FindAllReservations" message="tns:IPersonService_FindAllReservations_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPersonService/FindAllReservationsResponse" message="tns:IPersonService_FindAllReservations_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindReservationById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPersonService/FindReservationById" message="tns:IPersonService_FindReservationById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPersonService/FindReservationByIdResponse" message="tns:IPersonService_FindReservationById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertReservation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPersonService/InsertReservation" message="tns:IPersonService_InsertReservation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPersonService/InsertReservationResponse" message="tns:IPersonService_InsertReservation_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IPersonService" type="tns:IPersonService">
@@ -137,6 +168,33 @@
     </wsdl:operation>
     <wsdl:operation name="FindHalls">
       <soap:operation soapAction="http://tempuri.org/IPersonService/FindHalls" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindAllReservations">
+      <soap:operation soapAction="http://tempuri.org/IPersonService/FindAllReservations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindReservationById">
+      <soap:operation soapAction="http://tempuri.org/IPersonService/FindReservationById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertReservation">
+      <soap:operation soapAction="http://tempuri.org/IPersonService/InsertReservation" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
