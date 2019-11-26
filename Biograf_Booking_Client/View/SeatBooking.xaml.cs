@@ -1,4 +1,4 @@
-﻿using Biograf_Booking_Client.PersonService;
+﻿using Biograf_Booking_Client.Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -22,10 +22,14 @@ namespace Biograf_Booking_Client.View
     public partial class SeatBooking : Window
     {
         public ObservableCollection<int> Seats { get; private set; }
-        private List<int> MarkedSeats = new List<int>();
+        private List<Seat> MarkedSeats = new List<Seat>();
+        private Movie m = null;
+        private Hall h = null;
 
         public SeatBooking(Movie m, Hall h)
         {
+            m = this.m;
+            h = this.h;
             Seats = new ObservableCollection<int>();
             for (int i = 1; i <= 84; i++)
                 Seats.Add(i);
@@ -57,15 +61,13 @@ namespace Biograf_Booking_Client.View
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private Reservation Button_Click(object sender, RoutedEventArgs e)
         {
+            Reservation r = new Reservation();
+            r.MovieId = m.MovieId;
+            r.Seats = MarkedSeats;
 
-            foreach (int i in MarkedSeats)
-            {
-
-            }
-
-
+            return null;
         }
     }
 }

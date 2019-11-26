@@ -66,6 +66,7 @@
     <Compile Include="Controller\EmployeeCtrl.cs" />
     <Compile Include="Controller\HallCtrl.cs" />
     <Compile Include="Controller\MovieCtrl.cs" />
+    <Compile Include="Controller\ReservationCtrl.cs" />
     <Compile Include="Database\CustomerRepository.cs" />
     <Compile Include="Database\DataBase.cs" />
     <Compile Include="Database\HallRepository.cs" />
@@ -74,7 +75,9 @@
     <Compile Include="Database\EmployeeRepository.cs" />
     <Compile Include="Database\IHallRepository.cs" />
     <Compile Include="Database\IMovieRepository.cs" />
+    <Compile Include="Database\IReservationRepository.cs" />
     <Compile Include="Database\MovieRepository.cs" />
+    <Compile Include="Database\ReservationRepository.cs" />
     <Compile Include="Model\Customer.cs" />
     <Compile Include="Model\Employee.cs" />
     <Compile Include="Model\Hall.cs" />

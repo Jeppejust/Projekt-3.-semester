@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Biograf_Booking_Server.Model
 {
-    class Reservation
+    public class Reservation
     {
         public int Date
         {
