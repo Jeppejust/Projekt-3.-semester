@@ -92,6 +92,7 @@
     </Compile>
     <Compile Include="Controller\EmployeeCtrl.cs" />
     <Compile Include="Controller\MovieCtrl.cs" />
+    <Compile Include="Controller\ReservationCtrl.cs" />
     <Compile Include="Model\Customer.cs" />
     <Compile Include="Model\Employee.cs" />
     <Compile Include="Model\Hall.cs" />
@@ -106,6 +107,7 @@
     </Compile>
     <Compile Include="Service\EmployeeService.cs" />
     <Compile Include="Service\MovieService.cs" />
+    <Compile Include="Service\ReservationService.cs" />
     <Compile Include="View\ChooseHall.xaml.cs">
       <DependentUpon>ChooseHall.xaml</DependentUpon>
     </Compile>

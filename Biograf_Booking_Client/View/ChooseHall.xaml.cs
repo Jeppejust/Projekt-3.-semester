@@ -21,13 +21,12 @@ namespace Biograf_Booking_Client.View
     /// </summary>
     public partial class ChooseHall : Window
     {
-        private PersonService.Movie m;
-        private Movie movie;
+        private Movie movie = null;
         private List<Hall> halls = new List<Hall>();
         public ChooseHall(Movie m)
         {
             movie = m;
-
+            MessageBox.Show(""+m.Title);
             halls = FindHalls(m.MovieId);
             InitializeComponent();
             ListViewHalls.ItemsSource = halls;
@@ -62,6 +61,7 @@ namespace Biograf_Booking_Client.View
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            MessageBox.Show(""+ movie.Title);
             var xx = sender as Button;
             string t = xx.Content.ToString();
             Hall h = FindHall(t);

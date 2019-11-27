@@ -1,4 +1,6 @@
-﻿using Biograf_Booking_Client.PersonService;
+﻿
+using Seat = Biograf_Booking_Client.Model.Seat;
+using Biograf_Booking_Client.PersonService;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -13,6 +15,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Biograf_Booking_Client.Controller;
 
 namespace Biograf_Booking_Client.View
 {
@@ -22,19 +25,22 @@ namespace Biograf_Booking_Client.View
     public partial class SeatBooking : Window
     {
         public ObservableCollection<int> Seats { get; private set; }
-        private List<Seat> MarkedSeats = new List<Seat>();
+        private List<int> MarkedSeats = new List<int>();
         private Movie m = null;
         private Hall h = null;
+        private ReservationCtrl ResCtrl = new ReservationCtrl();
+        
 
         public SeatBooking(Movie m, Hall h)
         {
-            m = this.m;
+            this.m = m; 
             h = this.h;
             Seats = new ObservableCollection<int>();
             for (int i = 1; i <= 84; i++)
                 Seats.Add(i);
 
             InitializeComponent();
+            MessageBox.Show(""+ m.Title);
         }
 
 
@@ -61,13 +67,15 @@ namespace Biograf_Booking_Client.View
             }
         }
 
-        private Reservation Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
             Reservation r = new Reservation();
             r.MovieId = m.MovieId;
             r.Seats = MarkedSeats;
-
-            return null;
+            r.Date = DateTime.Now;
+            r.CustomerId = 1;
+            ResCtrl.InsertReservation(r);
+            Close();
         }
     }
 }
