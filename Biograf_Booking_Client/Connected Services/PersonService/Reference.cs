@@ -436,21 +436,146 @@ namespace Biograf_Booking_Client.PersonService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Reservation", Namespace="http://schemas.datacontract.org/2004/07/Biograf_Booking_Server.Model")]
+    [System.SerializableAttribute()]
+    public partial class Reservation : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int CustomerIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime DateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int MovieIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ReservationIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int SeatIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.List<int> SeatsField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int CustomerId {
+            get {
+                return this.CustomerIdField;
+            }
+            set {
+                if ((this.CustomerIdField.Equals(value) != true)) {
+                    this.CustomerIdField = value;
+                    this.RaisePropertyChanged("CustomerId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime Date {
+            get {
+                return this.DateField;
+            }
+            set {
+                if ((this.DateField.Equals(value) != true)) {
+                    this.DateField = value;
+                    this.RaisePropertyChanged("Date");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int MovieId {
+            get {
+                return this.MovieIdField;
+            }
+            set {
+                if ((this.MovieIdField.Equals(value) != true)) {
+                    this.MovieIdField = value;
+                    this.RaisePropertyChanged("MovieId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ReservationId {
+            get {
+                return this.ReservationIdField;
+            }
+            set {
+                if ((this.ReservationIdField.Equals(value) != true)) {
+                    this.ReservationIdField = value;
+                    this.RaisePropertyChanged("ReservationId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int SeatId {
+            get {
+                return this.SeatIdField;
+            }
+            set {
+                if ((this.SeatIdField.Equals(value) != true)) {
+                    this.SeatIdField = value;
+                    this.RaisePropertyChanged("SeatId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.List<int> Seats {
+            get {
+                return this.SeatsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SeatsField, value) != true)) {
+                    this.SeatsField = value;
+                    this.RaisePropertyChanged("Seats");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="PersonService.IPersonService")]
     public interface IPersonService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPersonService/GetEmployees", ReplyAction="http://tempuri.org/IPersonService/GetEmployeesResponse")]
-        Biograf_Booking_Client.PersonService.Employee[] GetEmployees();
+        System.Collections.Generic.List<Biograf_Booking_Client.PersonService.Employee> GetEmployees();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPersonService/GetEmployees", ReplyAction="http://tempuri.org/IPersonService/GetEmployeesResponse")]
-        System.Threading.Tasks.Task<Biograf_Booking_Client.PersonService.Employee[]> GetEmployeesAsync();
+        System.Threading.Tasks.Task<System.Collections.Generic.List<Biograf_Booking_Client.PersonService.Employee>> GetEmployeesAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPersonService/GetCustomers", ReplyAction="http://tempuri.org/IPersonService/GetCustomersResponse")]
-        Biograf_Booking_Client.PersonService.Customer[] GetCustomers();
+        System.Collections.Generic.List<Biograf_Booking_Client.PersonService.Customer> GetCustomers();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPersonService/GetCustomers", ReplyAction="http://tempuri.org/IPersonService/GetCustomersResponse")]
-        System.Threading.Tasks.Task<Biograf_Booking_Client.PersonService.Customer[]> GetCustomersAsync();
+        System.Threading.Tasks.Task<System.Collections.Generic.List<Biograf_Booking_Client.PersonService.Customer>> GetCustomersAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPersonService/GetEmployeeById", ReplyAction="http://tempuri.org/IPersonService/GetEmployeeByIdResponse")]
         Biograf_Booking_Client.PersonService.Employee GetEmployeeById(int SearchId);
@@ -465,10 +590,10 @@ namespace Biograf_Booking_Client.PersonService {
         System.Threading.Tasks.Task<bool> LogOnAsync(string user, string pass);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPersonService/GetAllMovies", ReplyAction="http://tempuri.org/IPersonService/GetAllMoviesResponse")]
-        Biograf_Booking_Client.PersonService.Movie[] GetAllMovies();
+        System.Collections.Generic.List<Biograf_Booking_Client.PersonService.Movie> GetAllMovies();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPersonService/GetAllMovies", ReplyAction="http://tempuri.org/IPersonService/GetAllMoviesResponse")]
-        System.Threading.Tasks.Task<Biograf_Booking_Client.PersonService.Movie[]> GetAllMoviesAsync();
+        System.Threading.Tasks.Task<System.Collections.Generic.List<Biograf_Booking_Client.PersonService.Movie>> GetAllMoviesAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPersonService/GetMovie", ReplyAction="http://tempuri.org/IPersonService/GetMovieResponse")]
         Biograf_Booking_Client.PersonService.Movie GetMovie(int id);
@@ -477,10 +602,28 @@ namespace Biograf_Booking_Client.PersonService {
         System.Threading.Tasks.Task<Biograf_Booking_Client.PersonService.Movie> GetMovieAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPersonService/FindHalls", ReplyAction="http://tempuri.org/IPersonService/FindHallsResponse")]
-        Biograf_Booking_Client.PersonService.Hall[] FindHalls(int id);
+        System.Collections.Generic.List<Biograf_Booking_Client.PersonService.Hall> FindHalls(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPersonService/FindHalls", ReplyAction="http://tempuri.org/IPersonService/FindHallsResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<Biograf_Booking_Client.PersonService.Hall>> FindHallsAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPersonService/FindAllReservations", ReplyAction="http://tempuri.org/IPersonService/FindAllReservationsResponse")]
+        System.Collections.Generic.List<Biograf_Booking_Client.PersonService.Reservation> FindAllReservations();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPersonService/FindAllReservations", ReplyAction="http://tempuri.org/IPersonService/FindAllReservationsResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<Biograf_Booking_Client.PersonService.Reservation>> FindAllReservationsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPersonService/FindReservationById", ReplyAction="http://tempuri.org/IPersonService/FindReservationByIdResponse")]
+        Biograf_Booking_Client.PersonService.Reservation FindReservationById(int Id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPersonService/FindReservationById", ReplyAction="http://tempuri.org/IPersonService/FindReservationByIdResponse")]
+        System.Threading.Tasks.Task<Biograf_Booking_Client.PersonService.Reservation> FindReservationByIdAsync(int Id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPersonService/InsertReservation", ReplyAction="http://tempuri.org/IPersonService/InsertReservationResponse")]
+        void InsertReservation(Biograf_Booking_Client.PersonService.Reservation r);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPersonService/InsertReservation", ReplyAction="http://tempuri.org/IPersonService/InsertReservationResponse")]
+        System.Threading.Tasks.Task InsertReservationAsync(Biograf_Booking_Client.PersonService.Reservation r);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -510,19 +653,19 @@ namespace Biograf_Booking_Client.PersonService {
                 base(binding, remoteAddress) {
         }
         
-        public Biograf_Booking_Client.PersonService.Employee[] GetEmployees() {
+        public System.Collections.Generic.List<Biograf_Booking_Client.PersonService.Employee> GetEmployees() {
             return base.Channel.GetEmployees();
         }
         
-        public System.Threading.Tasks.Task<Biograf_Booking_Client.PersonService.Employee[]> GetEmployeesAsync() {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<Biograf_Booking_Client.PersonService.Employee>> GetEmployeesAsync() {
             return base.Channel.GetEmployeesAsync();
         }
         
-        public Biograf_Booking_Client.PersonService.Customer[] GetCustomers() {
+        public System.Collections.Generic.List<Biograf_Booking_Client.PersonService.Customer> GetCustomers() {
             return base.Channel.GetCustomers();
         }
         
-        public System.Threading.Tasks.Task<Biograf_Booking_Client.PersonService.Customer[]> GetCustomersAsync() {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<Biograf_Booking_Client.PersonService.Customer>> GetCustomersAsync() {
             return base.Channel.GetCustomersAsync();
         }
         
@@ -542,11 +685,11 @@ namespace Biograf_Booking_Client.PersonService {
             return base.Channel.LogOnAsync(user, pass);
         }
         
-        public Biograf_Booking_Client.PersonService.Movie[] GetAllMovies() {
+        public System.Collections.Generic.List<Biograf_Booking_Client.PersonService.Movie> GetAllMovies() {
             return base.Channel.GetAllMovies();
         }
         
-        public System.Threading.Tasks.Task<Biograf_Booking_Client.PersonService.Movie[]> GetAllMoviesAsync() {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<Biograf_Booking_Client.PersonService.Movie>> GetAllMoviesAsync() {
             return base.Channel.GetAllMoviesAsync();
         }
         
@@ -558,12 +701,36 @@ namespace Biograf_Booking_Client.PersonService {
             return base.Channel.GetMovieAsync(id);
         }
         
-        public Biograf_Booking_Client.PersonService.Hall[] FindHalls(int id) {
+        public System.Collections.Generic.List<Biograf_Booking_Client.PersonService.Hall> FindHalls(int id) {
             return base.Channel.FindHalls(id);
         }
         
-        public System.Threading.Tasks.Task<Biograf_Booking_Client.PersonService.Hall[]> FindHallsAsync(int id) {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<Biograf_Booking_Client.PersonService.Hall>> FindHallsAsync(int id) {
             return base.Channel.FindHallsAsync(id);
+        }
+        
+        public System.Collections.Generic.List<Biograf_Booking_Client.PersonService.Reservation> FindAllReservations() {
+            return base.Channel.FindAllReservations();
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<Biograf_Booking_Client.PersonService.Reservation>> FindAllReservationsAsync() {
+            return base.Channel.FindAllReservationsAsync();
+        }
+        
+        public Biograf_Booking_Client.PersonService.Reservation FindReservationById(int Id) {
+            return base.Channel.FindReservationById(Id);
+        }
+        
+        public System.Threading.Tasks.Task<Biograf_Booking_Client.PersonService.Reservation> FindReservationByIdAsync(int Id) {
+            return base.Channel.FindReservationByIdAsync(Id);
+        }
+        
+        public void InsertReservation(Biograf_Booking_Client.PersonService.Reservation r) {
+            base.Channel.InsertReservation(r);
+        }
+        
+        public System.Threading.Tasks.Task InsertReservationAsync(Biograf_Booking_Client.PersonService.Reservation r) {
+            return base.Channel.InsertReservationAsync(r);
         }
     }
 }
