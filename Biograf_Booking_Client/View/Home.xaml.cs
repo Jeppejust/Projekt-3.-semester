@@ -42,6 +42,7 @@ namespace Biograf_Booking_Client.View
             var xx = sender as TextBlock;
             Movie m = FindMovie(xx.Text);
             ChooseHall ch = new ChooseHall(m);
+            ch.Topmost = true;
             ch.Show();
         }
         private Movie FindMovie(string title)
