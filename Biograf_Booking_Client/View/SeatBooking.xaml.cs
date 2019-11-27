@@ -76,6 +76,7 @@ namespace Biograf_Booking_Client.View
             r.CustomerId = 1;
             ResCtrl.InsertReservation(r);
             Close();
+            MessageBox.Show("Reservation oprettet");
         }
     }
 }
