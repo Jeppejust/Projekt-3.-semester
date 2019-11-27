@@ -40,7 +40,6 @@ namespace Biograf_Booking_Client.View
                 Seats.Add(i);
 
             InitializeComponent();
-            MessageBox.Show(""+ m.Title);
         }
 
 
