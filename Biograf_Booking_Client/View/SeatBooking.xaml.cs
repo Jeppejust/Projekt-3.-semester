@@ -17,6 +17,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Biograf_Booking_Client.Controller;
 
+
 namespace Biograf_Booking_Client.View
 {
     /// <summary>
@@ -29,11 +30,11 @@ namespace Biograf_Booking_Client.View
         private Movie m = null;
         private Hall h = null;
         private ReservationCtrl ResCtrl = new ReservationCtrl();
-        
+
 
         public SeatBooking(Movie m, Hall h)
         {
-            this.m = m; 
+            this.m = m;
             h = this.h;
             Seats = new ObservableCollection<int>();
             for (int i = 1; i <= 84; i++)
@@ -75,8 +76,20 @@ namespace Biograf_Booking_Client.View
             r.Date = DateTime.Now;
             r.CustomerId = 1;
             ResCtrl.InsertReservation(r);
-            Close();
-            MessageBox.Show("Reservation oprettet");
+
+            MessageBoxResult result = MessageBox.Show("Vil du fortsætte?", "POP UP", MessageBoxButton.YesNo);
+            switch (result)
+            {
+
+                case MessageBoxResult.Yes:
+                    MessageBox.Show("Reservation gennemført");
+                    Close();
+                    break;
+                case MessageBoxResult.No:
+                    MessageBox.Show("Annulleret");
+                    break;
+
+            }
         }
     }
 }
