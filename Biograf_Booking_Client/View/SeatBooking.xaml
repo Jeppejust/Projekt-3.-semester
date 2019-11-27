@@ -9,7 +9,7 @@
     <StackPanel Background="#FF363636">
         <TextBlock HorizontalAlignment="Center" Text="Sæde reservation" FontSize="24" Margin="0,60" Foreground="White"/>
 
-        <ItemsControl ItemsSource="{Binding Seats}">
+        <ItemsControl x:Name="listViewSeats" ItemsSource="{Binding Seats}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <Grid>
