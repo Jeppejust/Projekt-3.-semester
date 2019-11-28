@@ -12,7 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Biograf_Booking_Client;
 using Biograf_Booking_Client.Controller;
-using Biograf_Booking_Client.PersonService;
+using Biograf_Booking_Client.Model;
 
 namespace Biograf_Booking_Client.View
 {
