@@ -14,8 +14,8 @@
                 <DataTemplate>
                     <Grid>
 
-                        <TextBlock x:Name="Seat" Text="{Binding}" TextAlignment="Center" VerticalAlignment="Center" Margin="9"
-                           Foreground="White" FontWeight="Bold" MouseDown="TextBlock_MouseDown" Padding="0" Background="ForestGreen" Width="20" Height="20"/>
+                        <TextBlock x:Name="Seat" Text="{Binding SeatId}" TextAlignment="Center" VerticalAlignment="Center" Margin="9"
+                           Foreground="White" FontWeight="Bold" MouseDown="TextBlock_MouseDown" Padding="0" Background="{Binding Color}" Width="20" Height="20"/>
                     </Grid>
                     <DataTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">

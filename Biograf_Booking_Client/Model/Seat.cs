@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
 
 namespace Biograf_Booking_Client.Model
 {
@@ -27,6 +28,16 @@ namespace Biograf_Booking_Client.Model
         {
             get { return seatId; }
             set { seatId = value; }
+        }
+        public int ResId
+        {
+            get { return ResId; }
+            set { ResId = value; }
+        }
+        public string Color
+        {
+            get { return Color; }
+            set { Color = value; }
         }
     }
 }
