@@ -14,15 +14,10 @@ namespace Biograf_Booking_Server.Model
 
         public int MovieId { get; set; }
 
-        private DateTime ShowDate;
+        private DateTime ShowDate { get; set; }
 
-        public DateTime showDate
-        {
-            get { return ShowDate; }
-            set { ShowDate = value; }
-        }
-        
+        public int Rows { get; set; }
 
-
+        public int TotalSeats { get; set; }
     }
 }

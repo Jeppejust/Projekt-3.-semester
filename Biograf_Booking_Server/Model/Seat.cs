@@ -8,25 +8,12 @@ namespace Biograf_Booking_Server.Model
 {
     class Seat
     {
-        public int number
-        {
-            get { return number; }
-            set { number = value; }
-        }
-        public int row
-        {
-            get { return row; }
-            set { row = value; }
-        }
-        public int hall
-        {
-            get { return hall; }
-            set { hall = value; }
-        }
-        public int seatId
-        {
-            get { return seatId; }
-            set { seatId = value; }
-        }
+        public int number { get; set; }
+
+        public int row { get; set; }
+
+        public int hallId { get; set; }
+
+        public int seatId { get; set; }
     }
 }
