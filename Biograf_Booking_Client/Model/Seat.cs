@@ -19,10 +19,10 @@ namespace Biograf_Booking_Client.Model
             get { return row; }
             set { row = value; }
         }
-        public int hall
+        public int hallId
         {
-            get { return hall; }
-            set { hall = value; }
+            get { return hallId; }
+            set { hallId = value; }
         }
         public int seatId
         {

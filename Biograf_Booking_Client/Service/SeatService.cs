@@ -14,7 +14,20 @@ namespace Biograf_Booking_Client.Service
         {
             using (PersonServiceClient proxy = new PersonServiceClient())
             {
-                return null;//proxy.FindSeatsByHallId(hId);
+                List<Model.Seat> seats = new List<Model.Seat>();
+                List<Seat> s = proxy.FindSeatsByHallId(hId);
+                foreach (Seat tempS in s)
+                {
+                    Model.Seat seat = new Model.Seat();
+                    seat.seatId = tempS.seatId;
+                    seat.row = tempS.row;
+                    seat.ResId = tempS.ResId;
+                    seat.number = tempS.number;
+                    seat.hallId = tempS.hallId;
+                    seats.Add(seat);
+                }
+                return seats;
+                
             }
         }
     }
