@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Biograf_Booking_Server.Model
 {
-    class Seat
+    public class Seat
     {
-        public int number { get; set; }
+        public int Number { get; set; }
 
-        public int row { get; set; }
+        public int Row { get; set; }
 
-        public int hallId { get; set; }
+        public int HallId { get; set; }
 
-        public int seatId { get; set; }
+        public int SeatId { get; set; }
     }
 }

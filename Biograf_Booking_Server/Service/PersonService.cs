@@ -17,6 +17,8 @@ namespace Biograf_Booking_Server.Service
         private MovieCtrl MovCtrl = new MovieCtrl();
         private HallCtrl HCtrl = new HallCtrl();
         private ReservationCtrl ResCtrl = new ReservationCtrl();
+        private SeatCtrl SeCtrl = new SeatCtrl();
+
 
         //[OperationBehavior(TransactionScopeRequired = true)]
         public List<Customer> GetCustomers()
@@ -63,6 +65,10 @@ namespace Biograf_Booking_Server.Service
        public void InsertReservation(Reservation r)
         {
             ResCtrl.InsertReservation(r);
+        }
+        public List<Seat> FindSeatByHallId(string HallId)
+        {
+            return SeCtrl.FindSeatByHallId(HallId);
         }
     }
 }

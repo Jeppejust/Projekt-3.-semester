@@ -31,5 +31,7 @@ namespace Biograf_Booking_Server.Service
         Reservation FindReservationById(int Id);
         [OperationContract]
         void InsertReservation(Reservation r);
+        [OperationContract]
+        List<Seat> FindSeatByHallId(string HallId);
     }
 }
