@@ -15,5 +15,7 @@ namespace Biograf_Booking_Server.Model
         public int HallId { get; set; }
 
         public int SeatId { get; set; }
+
+        public int ResId { get; set; }
     }
 }

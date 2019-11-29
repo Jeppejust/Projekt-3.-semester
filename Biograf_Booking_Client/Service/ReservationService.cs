@@ -9,11 +9,25 @@ namespace Biograf_Booking_Client.Service
 {
     class ReservationService
     {
-        public void InsertReservation(Reservation r)
+        public bool InsertReservation(Model.Reservation r)
         {
             using (PersonServiceClient proxy = new PersonServiceClient())
             {
-                proxy.InsertReservation(r);
+                Reservation res = new Reservation();
+                res.ReservationId = r.ReservationId;
+                res.MovieId = r.MovieId;
+                foreach (Model.Seat s in r.Seats)
+                {
+                    Seat seat = new Seat();
+                    seat.HallId = s.HallId;
+                    seat.Number = s.Number;
+                    seat.ResId = s.ResId;
+                    seat.Row = s.Row;
+                    seat.SeatId = s.SeatId;
+                    res.Seats.Add(seat);
+                }
+
+                return proxy.InsertReservation(res);
             }
         }
     }

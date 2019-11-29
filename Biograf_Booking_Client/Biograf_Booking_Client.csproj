@@ -158,6 +158,9 @@
     <None Include="Connected Services\PersonService\Biograf_Booking_Client.PersonService.Reservation.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\PersonService\Biograf_Booking_Client.PersonService.Seat.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\PersonService\item.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -165,9 +168,6 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\PersonService\item2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\PersonService\item3.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\PersonService\PersonService.wsdl" />

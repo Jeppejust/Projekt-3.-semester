@@ -17,9 +17,7 @@ namespace Biograf_Booking_Server.Model
 
         public int MovieId { get; set; }
 
-        public int SeatId { get; set; }
-
-        public List<int> Seats { get; set; }
+        public List<Seat> Seats { get; set; }
 
     }
 }

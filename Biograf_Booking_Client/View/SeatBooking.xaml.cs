@@ -34,37 +34,33 @@ namespace Biograf_Booking_Client.View
         {
             this.m = m;
             this.h = h;
-            //Seats = FindSeatsByHallId(h.HallId);
-            /*List<Seat> s = new List<Seat>();
-            foreach (Seat tempS in Seats)
+            
+            List<Seat> s = new List<Seat>();
+            s = FindSeatsByHallId();
+            Seats = s;
+            MessageBox.Show("" + s.Count());
+            foreach (Seat tempS in s)
             {
-                if (tempS.ResId==0)
+                
+                if (tempS.ResId==null)
                 {
                     tempS.Color = Convert.ToString(Colors.Red);
-                    s.Add(tempS);
                 }
                 else
                 {
                     tempS.Color = Convert.ToString(Colors.ForestGreen);
                 }
-            }*/
-            List<string> s = new List<string>();
-            for (int i = 0; i < 84; i++)
-            {
-
             }
-            s.Add(Convert.ToString(Colors.Red));
-
             InitializeComponent();
             listViewSeats.ItemsSource = s;
             
         }
-
-        /*private static List<Seat> FindSeatsByHallId(int hId)
+        private List<Seat> FindSeatsByHallId()
         {
-            return seatCtrl.FindSeatsByHallId(hId);
-        }*/
-
+            List<Seat> seats = new List<Seat>();
+            seats = seatCtrl.FindSeatsByHallId(h.HallId);
+            return seats;
+        }
         private void TextBlock_MouseDown(object sender, MouseButtonEventArgs e)
         {
             var xx = sender as TextBlock;
@@ -94,10 +90,19 @@ namespace Biograf_Booking_Client.View
         {
             Reservation r = new Reservation();
             r.MovieId = m.MovieId;
-            //r.Seats = MarkedSeats;
-            //r.Date = DateTime.Now;
+            foreach (int Marked in MarkedSeats)
+            {
+                foreach (Seat s in Seats)
+                {
+                    if (s.SeatId == Marked)
+                    {
+                        r.Seats.Add(s);
+                    }
+                }
+            }
+            r.Date = DateTime.Now;
             r.CustomerId = 1;
-            //ResCtrl.InsertReservation(r);
+            
 
             MessageBoxResult result = MessageBox.Show("Vil du fortsætte?", "POP UP", MessageBoxButton.YesNo);
             switch (result)
@@ -105,13 +110,18 @@ namespace Biograf_Booking_Client.View
 
                 case MessageBoxResult.Yes:
                     MessageBox.Show("Reservation gennemført");
-                    Close();
+
+                    Reserve(r);
                     break;
                 case MessageBoxResult.No:
                     MessageBox.Show("Annulleret");
                     break;
 
             }
+        }
+        private void Reserve(Reservation r)
+        {
+            bool b = ResCtrl.InsertReservation(r);
         }
     }
 }

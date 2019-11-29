@@ -8,7 +8,7 @@ namespace Biograf_Booking_Client.Model
 {
     class Reservation
     {
-        public int Date { get; set; }
+        public DateTime Date { get; set; }
 
         public int Time { get; set; }
 

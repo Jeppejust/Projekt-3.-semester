@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Biograf_Booking_Server.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,8 @@ namespace Biograf_Booking_Server.Database
 {
     interface ISeatRepository<T> where T : class
     {
-        List<T> FindSeatByHallId(String HallId);
+        List<T> FindSeatsByHallId(int HallId);
+
+        List<Seat> FindSeatsBySeatId(List<Seat> s);
     }
 }

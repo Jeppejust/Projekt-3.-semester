@@ -11,6 +11,6 @@ namespace Biograf_Booking_Server.Database
     {
         List<Reservation> FindAllReservations();
         Reservation FindReservationById(int Id);
-        void InsertReservation(Reservation r);
+        bool InsertReservation(Reservation r);
     }
 }

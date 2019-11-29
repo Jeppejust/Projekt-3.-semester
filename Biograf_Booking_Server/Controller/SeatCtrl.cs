@@ -17,9 +17,9 @@ namespace Biograf_Booking_Server.Controller
             ISeatRepo = new SeatRepository();
         }
 
-        public List<Seat> FindSeatByHallId(string HallId)
+        public List<Seat> FindSeatsByHallId(int HallId)
         {
-            return ISeatRepo.FindSeatByHallId(HallId);
+            return ISeatRepo.FindSeatsByHallId(HallId);
         }
 
     }

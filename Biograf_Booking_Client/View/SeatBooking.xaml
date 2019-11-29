@@ -9,11 +9,10 @@
     <StackPanel Background="#FF363636">
         <TextBlock HorizontalAlignment="Center" Text="Sæde reservation" FontSize="24" Margin="0,60" Foreground="White"/>
 
-        <ItemsControl x:Name="listViewSeats" ItemsSource="{Binding Seats}">
+        <ItemsControl x:Name="listViewSeats" ItemsSource="{Binding Seat}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <Grid>
-
                         <TextBlock x:Name="Seat" Text="{Binding SeatId}" TextAlignment="Center" VerticalAlignment="Center" Margin="9"
                            Foreground="White" FontWeight="Bold" MouseDown="TextBlock_MouseDown" Padding="0" Background="{Binding Color}" Width="20" Height="20"/>
                     </Grid>

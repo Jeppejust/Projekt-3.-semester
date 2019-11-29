@@ -1,4 +1,5 @@
-﻿using Biograf_Booking_Client.PersonService;
+﻿using Biograf_Booking_Client.Model;
+
 using Biograf_Booking_Client.Service;
 using System;
 using System.Collections.Generic;
@@ -15,9 +16,11 @@ namespace Biograf_Booking_Client.Controller
         {
             ResSer = new ReservationService();
         }
-        public void InsertReservation(Reservation r)
+        public bool InsertReservation(Reservation r)
         {
-            ResSer.InsertReservation(r);
+            return ResSer.InsertReservation(r);
         }
+
+        
     }
 }

@@ -11,10 +11,12 @@ namespace Biograf_Booking_Server.Controller
     class ReservationCtrl
     {
         private IReservationRepository<Reservation> IResRepo = null;
+        private ISeatRepository<Seat> ISeatRepo = null;
 
         public ReservationCtrl()
         {
             IResRepo = new ReservationRepository();
+            ISeatRepo = new SeatRepository();
         }
 
         public List<Reservation> FindAllReservations()
@@ -25,9 +27,29 @@ namespace Biograf_Booking_Server.Controller
         {
             return IResRepo.FindReservationById(Id);
         }
-        public void InsertReservation(Reservation r)
+        public bool InsertReservation(Reservation r)
         {
-            IResRepo.InsertReservation(r);
+            bool Inserted = false;
+            bool HasConflict = CheckSeats(r.Seats);
+            if (!HasConflict)
+            {
+                Inserted = IResRepo.InsertReservation(r);
+            }
+
+            return Inserted;
+        }
+        public bool CheckSeats (List<Seat> s)
+        {
+            bool HasConflict = false;
+            List<Seat> tempSeats = ISeatRepo.FindSeatsBySeatId(s);
+            foreach (Seat tempS in s)
+            {
+                if (tempS.ResId!=null)
+                {
+                    HasConflict = true;
+                }
+            }
+            return HasConflict;
         }
     }
 }

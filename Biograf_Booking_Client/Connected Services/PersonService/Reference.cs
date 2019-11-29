@@ -359,10 +359,13 @@ namespace Biograf_Booking_Client.PersonService {
         private int MovieIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int RowsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.TimeSpan ShowTimeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime showDateField;
+        private int TotalSeatsField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -401,6 +404,19 @@ namespace Biograf_Booking_Client.PersonService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Rows {
+            get {
+                return this.RowsField;
+            }
+            set {
+                if ((this.RowsField.Equals(value) != true)) {
+                    this.RowsField = value;
+                    this.RaisePropertyChanged("Rows");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.TimeSpan ShowTime {
             get {
                 return this.ShowTimeField;
@@ -414,14 +430,14 @@ namespace Biograf_Booking_Client.PersonService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime showDate {
+        public int TotalSeats {
             get {
-                return this.showDateField;
+                return this.TotalSeatsField;
             }
             set {
-                if ((this.showDateField.Equals(value) != true)) {
-                    this.showDateField = value;
-                    this.RaisePropertyChanged("showDate");
+                if ((this.TotalSeatsField.Equals(value) != true)) {
+                    this.TotalSeatsField = value;
+                    this.RaisePropertyChanged("TotalSeats");
                 }
             }
         }
@@ -458,10 +474,7 @@ namespace Biograf_Booking_Client.PersonService {
         private int ReservationIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int SeatIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Collections.Generic.List<int> SeatsField;
+        private System.Collections.Generic.List<Biograf_Booking_Client.PersonService.Seat> SeatsField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -526,6 +539,115 @@ namespace Biograf_Booking_Client.PersonService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.List<Biograf_Booking_Client.PersonService.Seat> Seats {
+            get {
+                return this.SeatsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SeatsField, value) != true)) {
+                    this.SeatsField = value;
+                    this.RaisePropertyChanged("Seats");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Seat", Namespace="http://schemas.datacontract.org/2004/07/Biograf_Booking_Server.Model")]
+    [System.SerializableAttribute()]
+    public partial class Seat : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int HallIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int NumberField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ResIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int RowField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int SeatIdField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int HallId {
+            get {
+                return this.HallIdField;
+            }
+            set {
+                if ((this.HallIdField.Equals(value) != true)) {
+                    this.HallIdField = value;
+                    this.RaisePropertyChanged("HallId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Number {
+            get {
+                return this.NumberField;
+            }
+            set {
+                if ((this.NumberField.Equals(value) != true)) {
+                    this.NumberField = value;
+                    this.RaisePropertyChanged("Number");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ResId {
+            get {
+                return this.ResIdField;
+            }
+            set {
+                if ((this.ResIdField.Equals(value) != true)) {
+                    this.ResIdField = value;
+                    this.RaisePropertyChanged("ResId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Row {
+            get {
+                return this.RowField;
+            }
+            set {
+                if ((this.RowField.Equals(value) != true)) {
+                    this.RowField = value;
+                    this.RaisePropertyChanged("Row");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int SeatId {
             get {
                 return this.SeatIdField;
@@ -534,19 +656,6 @@ namespace Biograf_Booking_Client.PersonService {
                 if ((this.SeatIdField.Equals(value) != true)) {
                     this.SeatIdField = value;
                     this.RaisePropertyChanged("SeatId");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.Generic.List<int> Seats {
-            get {
-                return this.SeatsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.SeatsField, value) != true)) {
-                    this.SeatsField = value;
-                    this.RaisePropertyChanged("Seats");
                 }
             }
         }
@@ -620,10 +729,16 @@ namespace Biograf_Booking_Client.PersonService {
         System.Threading.Tasks.Task<Biograf_Booking_Client.PersonService.Reservation> FindReservationByIdAsync(int Id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPersonService/InsertReservation", ReplyAction="http://tempuri.org/IPersonService/InsertReservationResponse")]
-        void InsertReservation(Biograf_Booking_Client.PersonService.Reservation r);
+        bool InsertReservation(Biograf_Booking_Client.PersonService.Reservation r);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPersonService/InsertReservation", ReplyAction="http://tempuri.org/IPersonService/InsertReservationResponse")]
-        System.Threading.Tasks.Task InsertReservationAsync(Biograf_Booking_Client.PersonService.Reservation r);
+        System.Threading.Tasks.Task<bool> InsertReservationAsync(Biograf_Booking_Client.PersonService.Reservation r);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPersonService/FindSeatsByHallId", ReplyAction="http://tempuri.org/IPersonService/FindSeatsByHallIdResponse")]
+        System.Collections.Generic.List<Biograf_Booking_Client.PersonService.Seat> FindSeatsByHallId(int HallId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPersonService/FindSeatsByHallId", ReplyAction="http://tempuri.org/IPersonService/FindSeatsByHallIdResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<Biograf_Booking_Client.PersonService.Seat>> FindSeatsByHallIdAsync(int HallId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -725,12 +840,20 @@ namespace Biograf_Booking_Client.PersonService {
             return base.Channel.FindReservationByIdAsync(Id);
         }
         
-        public void InsertReservation(Biograf_Booking_Client.PersonService.Reservation r) {
-            base.Channel.InsertReservation(r);
+        public bool InsertReservation(Biograf_Booking_Client.PersonService.Reservation r) {
+            return base.Channel.InsertReservation(r);
         }
         
-        public System.Threading.Tasks.Task InsertReservationAsync(Biograf_Booking_Client.PersonService.Reservation r) {
+        public System.Threading.Tasks.Task<bool> InsertReservationAsync(Biograf_Booking_Client.PersonService.Reservation r) {
             return base.Channel.InsertReservationAsync(r);
+        }
+        
+        public System.Collections.Generic.List<Biograf_Booking_Client.PersonService.Seat> FindSeatsByHallId(int HallId) {
+            return base.Channel.FindSeatsByHallId(HallId);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<Biograf_Booking_Client.PersonService.Seat>> FindSeatsByHallIdAsync(int HallId) {
+            return base.Channel.FindSeatsByHallIdAsync(HallId);
         }
     }
 }

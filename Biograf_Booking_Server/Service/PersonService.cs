@@ -62,13 +62,13 @@ namespace Biograf_Booking_Server.Service
         {
             return ResCtrl.FindReservationById(Id);
         }
-       public void InsertReservation(Reservation r)
+       public bool InsertReservation(Reservation r)
         {
-            ResCtrl.InsertReservation(r);
+            return ResCtrl.InsertReservation(r);
         }
-        public List<Seat> FindSeatByHallId(string HallId)
+        public List<Seat> FindSeatsByHallId(int HallId)
         {
-            return SeCtrl.FindSeatByHallId(HallId);
+            return SeCtrl.FindSeatsByHallId(HallId);
         }
     }
 }

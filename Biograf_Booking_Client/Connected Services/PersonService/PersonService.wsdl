@@ -5,7 +5,6 @@
       <xsd:import schemaLocation="http://localhost:2112/?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:2112/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:2112/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Biograf_Booking_Server.Model" />
-      <xsd:import schemaLocation="http://localhost:2112/?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IPersonService_GetEmployees_InputMessage">
@@ -68,6 +67,12 @@
   <wsdl:message name="IPersonService_InsertReservation_OutputMessage">
     <wsdl:part name="parameters" element="tns:InsertReservationResponse" />
   </wsdl:message>
+  <wsdl:message name="IPersonService_FindSeatsByHallId_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindSeatsByHallId" />
+  </wsdl:message>
+  <wsdl:message name="IPersonService_FindSeatsByHallId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindSeatsByHallIdResponse" />
+  </wsdl:message>
   <wsdl:portType name="IPersonService">
     <wsdl:operation name="GetEmployees">
       <wsdl:input wsaw:Action="http://tempuri.org/IPersonService/GetEmployees" message="tns:IPersonService_GetEmployees_InputMessage" />
@@ -108,6 +113,10 @@
     <wsdl:operation name="InsertReservation">
       <wsdl:input wsaw:Action="http://tempuri.org/IPersonService/InsertReservation" message="tns:IPersonService_InsertReservation_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IPersonService/InsertReservationResponse" message="tns:IPersonService_InsertReservation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindSeatsByHallId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPersonService/FindSeatsByHallId" message="tns:IPersonService_FindSeatsByHallId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPersonService/FindSeatsByHallIdResponse" message="tns:IPersonService_FindSeatsByHallId_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IPersonService" type="tns:IPersonService">
@@ -195,6 +204,15 @@
     </wsdl:operation>
     <wsdl:operation name="InsertReservation">
       <soap:operation soapAction="http://tempuri.org/IPersonService/InsertReservation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindSeatsByHallId">
+      <soap:operation soapAction="http://tempuri.org/IPersonService/FindSeatsByHallId" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
