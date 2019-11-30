@@ -24,13 +24,5 @@ namespace Biograf_Booking_Client.Service
                 return proxy.GetMovie(id);
             }
         }
-
-        internal List<Hall> FindHalls(int movieId)
-        {
-            using (PersonServiceClient proxy = new PersonServiceClient())
-            {
-                return proxy.FindHalls(movieId);
-            }
-        }
     }
 }

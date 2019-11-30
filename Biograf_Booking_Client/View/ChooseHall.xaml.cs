@@ -39,8 +39,8 @@ namespace Biograf_Booking_Client.View
         }
         private List<Hall> FindHalls(int movieId)
         {
-            MovieCtrl movieCtrl = new MovieCtrl();
-            List<Hall> halls = movieCtrl.FindHalls(movieId);
+            HallCtrl hallCtrl = new HallCtrl();
+            List<Hall> halls = hallCtrl.FindHalls(movieId);
             return halls;
         }
     }

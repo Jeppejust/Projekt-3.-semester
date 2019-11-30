@@ -20,11 +20,6 @@ namespace Biograf_Booking_Client.Controller
         {
             return movieService.GetMovie(id);
         }
-
-        public List<Hall> FindHalls(int movieId)
-        {
-            return movieService.FindHalls(movieId);
-        }
     }
 
 }
