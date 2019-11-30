@@ -6,27 +6,16 @@ using System.Threading.Tasks;
 
 namespace Biograf_Booking_Server.Model
 {
-    class Seat
+    public class Seat
     {
-        public int number
-        {
-            get { return number; }
-            set { number = value; }
-        }
-        public int row
-        {
-            get { return row; }
-            set { row = value; }
-        }
-        public int hall
-        {
-            get { return hall; }
-            set { hall = value; }
-        }
-        public int seatId
-        {
-            get { return seatId; }
-            set { seatId = value; }
-        }
+        public int Number { get; set; }
+
+        public int Row { get; set; }
+
+        public int HallId { get; set; }
+
+        public int SeatId { get; set; }
+
+        public int ResId { get; set; }
     }
 }

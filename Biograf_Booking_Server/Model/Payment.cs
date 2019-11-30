@@ -8,15 +8,7 @@ namespace Biograf_Booking_Server.Model
 {
     class Payment
     {
-        public int Reciept
-        {
-            get { return Reciept; }
-            set { Reciept = value; }
-        }
-        public int PaymentId
-        {
-            get { return PaymentId; }
-            set { PaymentId = value; }
-        }
+        public int Reciept { get; set; }
+        public int PaymentId { get; set; }
     }
 }

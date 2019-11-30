@@ -6,16 +6,15 @@
         xmlns:local="clr-namespace:Biograf_Booking_Client.View"
         mc:Ignorable="d"
         Title="SeatBooking" Height="602.206" Width="800">
-    <StackPanel>
-        <TextBlock HorizontalAlignment="Center" Text="Sæde reservation" FontSize="24" Margin="0,60"/>
+    <StackPanel Background="#FF363636">
+        <TextBlock HorizontalAlignment="Center" Text="Sæde reservation" FontSize="24" Margin="0,60" Foreground="White"/>
 
-        <ItemsControl ItemsSource="{Binding Seats}">
+        <ItemsControl x:Name="listViewSeats" ItemsSource="{Binding Seat}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <Grid>
-
-                        <TextBlock x:Name="Seat" Text="{Binding}" TextAlignment="Center" VerticalAlignment="Center" Margin="9"
-                           Foreground="White" FontWeight="Bold" MouseDown="TextBlock_MouseDown" Padding="0" Background="ForestGreen" Width="20" Height="20"/>
+                        <TextBlock x:Name="Seat" Text="{Binding SeatId}" TextAlignment="Center" VerticalAlignment="Center" Margin="9"
+                           Foreground="White" FontWeight="Bold" MouseDown="TextBlock_MouseDown" Padding="0" Background="{Binding Color}" Width="20" Height="20"/>
                     </Grid>
                     <DataTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
@@ -36,6 +35,5 @@
             </ItemsControl.ItemsPanel>
         </ItemsControl>
         <Button Content="Reserver sæder" Width="100" Click="Button_Click"/>
-        <Label x:Name="Test" Content="Label"/>
     </StackPanel>
 </Window>

@@ -14,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Biograf_Booking_Client;
 using Biograf_Booking_Client.Controller;
-using Biograf_Booking_Client.PersonService;
+using Biograf_Booking_Client.Model;
 
 namespace Biograf_Booking_Client.View
 {
@@ -34,14 +34,21 @@ namespace Biograf_Booking_Client.View
         public void ShowMovies(List<Movie> movies)
         {
             if (movies != null)
+            {
                 ListViewMovies.ItemsSource = movies;
+            }
+            else
+            {
+                MessageBox.Show("no movies were found");
+            }
+                
         }
-
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
         {
             var xx = sender as TextBlock;
             Movie m = FindMovie(xx.Text);
             ChooseHall ch = new ChooseHall(m);
+            ch.Topmost = true;
             ch.Show();
         }
         private Movie FindMovie(string title)

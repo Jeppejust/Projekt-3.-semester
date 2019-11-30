@@ -8,36 +8,18 @@ namespace Biograf_Booking_Client.Model
 {
     class Reservation
     {
-        public int Date
-        {
-            get { return Date; }
-            set { Date = value; }
-        }
-        public int Time
-        {
-            get { return Time; }
-            set { Time = value; }
-        }
-        public int ReservationId
-        {
-            get { return ReservationId; }
-            set { ReservationId = value; }
-        }
-        public int CustomerId
-        {
-            get { return CustomerId; }
-            set { CustomerId = value; }
-        }
-        public int MovieId
-        {
-            get { return MovieId; }
-            set { MovieId = value; }
-        }
-        public int SeatId
-        {
-            get { return SeatId; }
-            set { SeatId = value; }
-        }
+        public DateTime Date { get; set; }
 
+        public int Time { get; set; }
+
+        public int ReservationId { get; set; }
+
+        public int CustomerId { get; set; }
+
+        public int MovieId { get; set; }
+
+        public int SeatId { get; set; }
+
+        public List<Seat> Seats { get; set; }
     }
 }
