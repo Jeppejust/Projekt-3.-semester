@@ -53,27 +53,14 @@ namespace Biograf_Booking_Client.View
             }
             catch (Exception)
             {
-                hall = null;
+                MessageBox.Show("Didn't get a hall");
             }
-            return hall;
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private List<Hall> FindHalls(int movieId)
         {
-            var xx = sender as Button;
-            string t = xx.Content.ToString();
-            Hall h = FindHall(t);
-            if (h!=null)
-            {
-                SeatBooking sb = new SeatBooking(movie, h);
-                sb.Topmost = true;
-                sb.Show();
-                Close();
-            }
-            else
-            {
-                MessageBox.Show("Something went wrong");
-            }
+            MovieCtrl movieCtrl = new MovieCtrl();
+            List<Hall> halls = movieCtrl.FindHalls(movieId);
+            return halls;
         }
     }
 }
