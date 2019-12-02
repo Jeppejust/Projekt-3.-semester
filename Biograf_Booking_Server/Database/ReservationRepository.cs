@@ -43,9 +43,19 @@ namespace Biograf_Booking_Server.Database
 
             using (con = new SqlConnection(DataBase.DbConnectionString))
             {
-                con.Execute(SqlInsertReservation, new { ResDate = CurrDate, ResTime = CurrTime, CustomerId = r.CustomerId, MovieId = r.MovieId });
+                con.Execute(SqlInsertReservation, new { ResDate = CurrDate, ResTime = CurrTime, CustomerId = 1, MovieId = r.MovieId });
                 return true;
             }
+        }
+        public int FindMaxRes()
+        {
+            string SqlMaxReservation = "select MAX(ReservationId) from tblReservation";
+            int resId;
+            using (con = new SqlConnection(DataBase.DbConnectionString))
+            {
+                resId = con.Execute(SqlMaxReservation);
+            }
+            return resId;
         }
     }
 }
