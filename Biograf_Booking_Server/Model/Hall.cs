@@ -14,7 +14,7 @@ namespace Biograf_Booking_Server.Model
 
         public int MovieId { get; set; }
 
-        private DateTime ShowDate { get; set; }
+        public DateTime ShowDate { get; set; }
 
         public int Rows { get; set; }
 

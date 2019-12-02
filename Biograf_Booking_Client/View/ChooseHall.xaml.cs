@@ -31,12 +31,6 @@ namespace Biograf_Booking_Client.View
             ListViewHalls.ItemsSource = halls;
 
         }
-        private List<Hall> FindHalls(int movieId)
-        {
-            MovieCtrl movieCtrl = new MovieCtrl();
-            List<Hall> halls = movieCtrl.FindHalls(movieId);
-            return halls;
-        }
         private Hall FindHall(string t)
         {
             int i = Convert.ToInt32(t);
@@ -54,13 +48,21 @@ namespace Biograf_Booking_Client.View
             catch (Exception)
             {
                 MessageBox.Show("Didn't get a hall");
+                hall = null;
             }
+            return hall;
         }
         private List<Hall> FindHalls(int movieId)
         {
-            MovieCtrl movieCtrl = new MovieCtrl();
-            List<Hall> halls = movieCtrl.FindHalls(movieId);
+            HallCtrl hallCtrl = new HallCtrl();
+            List<Hall> halls = new List<Hall>();
+            halls = hallCtrl.FindHalls(movieId);
             return halls;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

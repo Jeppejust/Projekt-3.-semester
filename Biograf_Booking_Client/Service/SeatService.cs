@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Biograf_Booking_Client.PersonService;
+
 
 namespace Biograf_Booking_Client.Service
 {

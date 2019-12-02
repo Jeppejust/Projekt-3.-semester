@@ -74,6 +74,7 @@
       <xs:element minOccurs="0" name="HallId" type="xs:int" />
       <xs:element minOccurs="0" name="MovieId" type="xs:int" />
       <xs:element minOccurs="0" name="Rows" type="xs:int" />
+      <xs:element minOccurs="0" name="ShowDate" type="xs:dateTime" />
       <xs:element minOccurs="0" name="ShowTime" type="ser:duration" />
       <xs:element minOccurs="0" name="TotalSeats" type="xs:int" />
     </xs:sequence>

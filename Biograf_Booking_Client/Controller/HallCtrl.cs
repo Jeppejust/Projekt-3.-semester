@@ -1,4 +1,4 @@
-﻿using Biograf_Booking_Client.PersonService;
+﻿using Biograf_Booking_Client.Model;
 using Biograf_Booking_Client.Service;
 using System;
 using System.Collections.Generic;

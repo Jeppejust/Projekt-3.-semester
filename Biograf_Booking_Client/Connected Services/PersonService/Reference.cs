@@ -362,6 +362,9 @@ namespace Biograf_Booking_Client.PersonService {
         private int RowsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime ShowDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.TimeSpan ShowTimeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -412,6 +415,19 @@ namespace Biograf_Booking_Client.PersonService {
                 if ((this.RowsField.Equals(value) != true)) {
                     this.RowsField = value;
                     this.RaisePropertyChanged("Rows");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime ShowDate {
+            get {
+                return this.ShowDateField;
+            }
+            set {
+                if ((this.ShowDateField.Equals(value) != true)) {
+                    this.ShowDateField = value;
+                    this.RaisePropertyChanged("ShowDate");
                 }
             }
         }

@@ -35,7 +35,9 @@ namespace Biograf_Booking_Server.Controller
             {
                 Inserted = IResRepo.InsertReservation(r);
             }
-
+            else {
+                Inserted = false;
+            }
             return Inserted;
         }
         public bool CheckSeats (List<Seat> s)
@@ -44,7 +46,7 @@ namespace Biograf_Booking_Server.Controller
             List<Seat> tempSeats = ISeatRepo.FindSeatsBySeatId(s);
             foreach (Seat tempS in s)
             {
-                if (tempS.ResId!=null)
+                if (tempS.ResId != null || tempS.ResId == 0)
                 {
                     HasConflict = true;
                 }

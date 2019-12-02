@@ -9,11 +9,22 @@ namespace Biograf_Booking_Client.Service
 {
     class HallService
     {
-        public List<Hall> FindHalls(int mId)
+        public List<Model.Hall> FindHalls(int mId)
         {
             using (PersonServiceClient proxy = new PersonServiceClient())
             {
-                return proxy.FindHalls(mId);
+                List<Hall> halls = proxy.FindHalls(mId);
+                List<Model.Hall> mH = new List<Model.Hall>();
+                foreach (Hall tempH in halls)
+                {
+                    Model.Hall h = new Model.Hall();
+                    h.HallId = tempH.HallId;
+                    h.MovieId = tempH.MovieId;
+                    h.ShowDate = tempH.ShowDate;
+                    h.ShowTime = tempH.ShowTime;
+                    mH.Add(h);
+                }              
+                return mH;
             }
         }
     }
