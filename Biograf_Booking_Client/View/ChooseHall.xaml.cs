@@ -64,6 +64,13 @@ namespace Biograf_Booking_Client.View
             var xx = sender as Button;
             int HallText = Convert.ToInt32(xx.Content);
             hall = GetHall(HallText);
+            if (hall != null)
+            {
+                SeatBooking sb = new SeatBooking(movie,hall);
+                sb.Show();
+                this.Close();
+            }
         }
+        
     }
 }

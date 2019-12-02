@@ -12,5 +12,7 @@ namespace Biograf_Booking_Server.Database
         List<T> FindSeatsByHallId(int HallId);
 
         List<Seat> FindSeatsBySeatId(List<Seat> s);
+
+        void UpdateSeats(List<Seat> s, int rId);
     }
 }

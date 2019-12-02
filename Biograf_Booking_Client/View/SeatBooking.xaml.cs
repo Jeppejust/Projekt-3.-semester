@@ -38,7 +38,6 @@ namespace Biograf_Booking_Client.View
             List<Seat> s = new List<Seat>();
             s = FindSeatsByHallId();
             Seats = s;
-            MessageBox.Show("" + s.Count());
             foreach (Seat tempS in s)
             {
                 
@@ -89,6 +88,7 @@ namespace Biograf_Booking_Client.View
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Reservation r = new Reservation();
+            r.Seats = new List<Seat>();
             r.MovieId = m.MovieId;
             foreach (int Marked in MarkedSeats)
             {
@@ -96,23 +96,22 @@ namespace Biograf_Booking_Client.View
                 {
                     if (s.SeatId == Marked)
                     {
+                        MessageBox.Show("added seat");
                         r.Seats.Add(s);
                     }
                 }
             }
             r.Date = DateTime.Now;
             r.CustomerId = 1;
-            
+            Reserve(r);
 
             
         }
         private void Reserve(Reservation r)
         {
-            
             MessageBoxResult result = MessageBox.Show("Vil du fortsætte?", "POP UP", MessageBoxButton.YesNo);
             switch (result)
             {
-
                 case MessageBoxResult.Yes:
                     bool b = ResCtrl.InsertReservation(r);
                     if (b)
@@ -123,9 +122,6 @@ namespace Biograf_Booking_Client.View
                     {
                         MessageBox.Show("Noget gik galt");
                     }
-                    
-
-                    Reserve(r);
                     break;
                 case MessageBoxResult.No:
                     MessageBox.Show("Annulleret");

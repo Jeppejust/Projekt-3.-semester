@@ -32,12 +32,23 @@ namespace Biograf_Booking_Server.Database
                 foreach (Seat tempS in s)
                 {
                     Seat seat = new Seat();
-                    seat = Con.Query<Seat>(SqlGetSeatBySeatId, new { tempS.SeatId}).FirstOrDefault();
+                    seat = Con.Query<Seat>(SqlGetSeatBySeatId, new { tempS.SeatId }).FirstOrDefault();
                     seats.Add(seat);
-                }                
+                }
                 return seats;
             }
 
+        }
+        public void UpdateSeats(List<Seat> seats, int rId)
+        {
+            using (Con = new SqlConnection(DataBase.DbConnectionString))
+            {
+                foreach (Seat s in seats)
+                {
+                    int sId = s.SeatId;
+                    Con.Execute("update tblSeat set ReservationId = @ResId where SeatId = @SeatId", new { ResId = rId, SeatId = sId });
+                }
+            }
         }
     }
 }
