@@ -104,12 +104,26 @@ namespace Biograf_Booking_Client.View
             r.CustomerId = 1;
             
 
+            
+        }
+        private void Reserve(Reservation r)
+        {
+            
             MessageBoxResult result = MessageBox.Show("Vil du fortsætte?", "POP UP", MessageBoxButton.YesNo);
             switch (result)
             {
 
                 case MessageBoxResult.Yes:
-                    MessageBox.Show("Reservation gennemført");
+                    bool b = ResCtrl.InsertReservation(r);
+                    if (b)
+                    {
+                        MessageBox.Show("Reservation gennemført");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Noget gik galt");
+                    }
+                    
 
                     Reserve(r);
                     break;
@@ -119,9 +133,6 @@ namespace Biograf_Booking_Client.View
 
             }
         }
-        private void Reserve(Reservation r)
-        {
-            bool b = ResCtrl.InsertReservation(r);
-        }
+
     }
 }
