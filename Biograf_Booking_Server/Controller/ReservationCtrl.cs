@@ -31,13 +31,17 @@ namespace Biograf_Booking_Server.Controller
         {
             bool Inserted = false;
             bool HasConflict = CheckSeats(r.Seats);
-            if (!HasConflict)
+            if (HasConflict == false)
             {
-                Inserted = IResRepo.InsertReservation(r);
+                bool Ins = IResRepo.InsertReservation(r);
+                if (Ins==true)
+                {
+                    int rId = IResRepo.FindMaxRes();
+                    ISeatRepo.UpdateSeats(r.Seats,1);
+                    Inserted = true;
+                }
             }
-            else {
-                Inserted = false;
-            }
+
             return Inserted;
         }
         public bool CheckSeats (List<Seat> s)
@@ -46,9 +50,9 @@ namespace Biograf_Booking_Server.Controller
             List<Seat> tempSeats = ISeatRepo.FindSeatsBySeatId(s);
             foreach (Seat tempS in s)
             {
-                if (tempS.ResId != null || tempS.ResId == 0)
+                if (tempS.ResId == null||tempS.ResId == 0)
                 {
-                    HasConflict = true;
+                    HasConflict = false;
                 }
             }
             return HasConflict;

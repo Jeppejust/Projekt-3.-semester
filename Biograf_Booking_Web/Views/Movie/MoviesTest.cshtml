@@ -1,0 +1,93 @@
+﻿@model IEnumerable<Biograf_Booking_Web.Models.Movie>
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Biobooking.dk</title>
+</head>
+<body style="background-color:dimgrey">
+
+    <header>
+        <h1 style="font-family:Cambria;">Film menu </h1>
+    </header>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+
+
+        A {
+            text-decoration: none;
+        }
+
+        .row {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        .container {
+            position: relative;
+            width: 360px;
+            height: 534px;
+        }
+
+        .image {
+            opacity: 1;
+            display: block;
+            transition: .5s ease;
+            backface-visibility: hidden;
+        }
+
+        .middle {
+            transition: .5s ease;
+            opacity: 0;
+            position: absolute;
+            top: 30%;
+            left: 0;
+            right: 0;
+            width: 100%;
+            text-align: center;
+        }
+
+        .container:hover .image {
+            opacity: 0.5;
+        }
+
+        .container:hover .middle {
+            opacity: 1;
+        }
+
+        .text {
+            background-color: #4CAF50;
+            color: white;
+            font-size: 24px;
+            padding: 16px 0;
+            margin: auto;
+            width: 100px;
+        }
+    </style>
+
+
+
+
+    <div class="row">
+
+        @foreach (var item in Model)
+        {
+            <div class="container">
+                <div class="img">
+                    <img src=@Html.DisplayFor(modelItem => item.ImagePath) alt=@Html.DisplayFor(modelItem => item.Title) class="image">
+                    <div class="middle">
+                        <a href="JokerTid.html" />
+                        
+                        <div class="text">Book nu</div>
+                    </div>
+                </div>
+            </div>
+        }
+        </div>
+
+</body>
+</html>

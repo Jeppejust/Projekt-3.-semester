@@ -22,6 +22,7 @@ namespace Biograf_Booking_Client.View
     public partial class ChooseHall : Window
     {
         private Movie movie = null;
+        private Hall hall = null;
         private List<Hall> halls = new List<Hall>();
         public ChooseHall(Movie m)
         {
@@ -31,9 +32,8 @@ namespace Biograf_Booking_Client.View
             ListViewHalls.ItemsSource = halls;
 
         }
-        private Hall FindHall(string t)
+        private Hall GetHall(int i)
         {
-            int i = Convert.ToInt32(t);
             Hall hall = new Hall();
             try
             {
@@ -54,15 +54,23 @@ namespace Biograf_Booking_Client.View
         }
         private List<Hall> FindHalls(int movieId)
         {
-            HallCtrl hallCtrl = new HallCtrl();
-            List<Hall> halls = new List<Hall>();
-            halls = hallCtrl.FindHalls(movieId);
+            MovieCtrl movieCtrl = new MovieCtrl();
+            List<Hall> halls = movieCtrl.FindHalls(movieId);
             return halls;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            var xx = sender as Button;
+            int HallText = Convert.ToInt32(xx.Content);
+            hall = GetHall(HallText);
+            if (hall != null)
+            {
+                SeatBooking sb = new SeatBooking(movie,hall);
+                sb.Show();
+                this.Close();
+            }
         }
+        
     }
 }
