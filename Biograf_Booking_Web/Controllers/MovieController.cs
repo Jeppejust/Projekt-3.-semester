@@ -21,7 +21,7 @@ namespace Biograf_Booking_Web.Controllers
         {
             return View(MovService.GetMovies());
         }
-        public ActionResult MoviesTest()
+        public ActionResult ShowMovies()
         {
             return View(MovService.GetMovies());
         }
