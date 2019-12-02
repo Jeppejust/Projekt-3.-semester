@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Biograf_Booking_Web.WebService.Movie>
+﻿@model IEnumerable<Biograf_Booking_Web.Models.Movie>
 
 @{
     ViewBag.Title = "Movies";
@@ -41,7 +41,7 @@
             @Html.DisplayFor(modelItem => item.PremiereDate)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Resume)
+            @Html.DisplayFor(modelItem => item.ImagePath)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Title)

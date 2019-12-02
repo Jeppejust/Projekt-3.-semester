@@ -10,6 +10,7 @@ namespace Biograf_Booking_Client.Service
 {
     class MovieService
     {
+        
         public List<Model.Movie> GetAllMovies()
         {
             using(PersonServiceClient proxy = new PersonServiceClient())

@@ -10,13 +10,18 @@ namespace Biograf_Booking_Web.Controllers
     public class MovieController : Controller
     {
         private MovieService MovService = new MovieService();
-        // GET: Movie
+
+        // GET: Movies
         public ActionResult Index()
         {
             return View(MovService.GetMovies());
         }
 
         public ActionResult Movies()
+        {
+            return View(MovService.GetMovies());
+        }
+        public ActionResult MoviesTest()
         {
             return View(MovService.GetMovies());
         }

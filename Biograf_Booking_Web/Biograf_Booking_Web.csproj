@@ -195,8 +195,16 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\Hall.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Movie.cs" />
+    <Compile Include="Models\Payment.cs" />
+    <Compile Include="Models\Person.cs" />
+    <Compile Include="Models\Reservation.cs" />
+    <Compile Include="Models\Seat.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\MovieService.cs" />
     <Compile Include="Startup.cs" />
@@ -235,6 +243,20 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Resources\batman.jpg" />
+    <Content Include="Resources\doctor_sleep_plakat.jpg" />
+    <Content Include="Resources\filmen_addams_plakat.jpg" />
+    <Content Include="Resources\flugten_fra_oe_plakat.jpg" />
+    <Content Include="Resources\frost-2-plakat.jpg" />
+    <Content Include="Resources\hustlers-plakat.jpg" />
+    <Content Include="Resources\jagtsaeson_plakat.jpg" />
+    <Content Include="Resources\jokerplakatny.jpg" />
+    <Content Include="Resources\le-mans2-plakat.jpg" />
+    <Content Include="Resources\le_mans1_plakat.jpg" />
+    <Content Include="Resources\midway-plakat.jpg" />
+    <Content Include="Resources\startrek.jpg" />
+    <Content Include="Resources\terminator-dark-fate-plakat.jpg" />
+    <Content Include="Resources\toy_story_4_payoffplakat_dk.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Connected Services\WebService\item.xsd">
@@ -266,9 +288,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Views\Web.config" />
-    <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
@@ -293,6 +313,7 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Movie\Movies.cshtml" />
+    <Content Include="Views\Movie\MoviesTest.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
