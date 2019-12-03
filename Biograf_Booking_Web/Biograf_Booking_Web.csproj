@@ -316,6 +316,8 @@
     <Content Include="Views\Movie\Movies.cshtml" />
     <Content Include="Views\Movie\ShowMovies.cshtml" />
     <Content Include="Views\Reservation\ReserveTime.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Reservation\SeatBooking.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
