@@ -41,7 +41,7 @@ namespace Biograf_Booking_Client.View
             foreach (Seat tempS in s)
             {
                 
-                if (tempS.ResId==null)
+                if (tempS.booked == true)
                 {
                     tempS.Color = Convert.ToString(Colors.Red);
                 }

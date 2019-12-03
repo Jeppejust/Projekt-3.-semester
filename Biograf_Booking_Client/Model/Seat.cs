@@ -20,5 +20,7 @@ namespace Biograf_Booking_Client.Model
         public int ResId { get; set; }
         
         public string Color { get; set; }
+
+        public bool booked { get; set; }
     }
 }

@@ -45,8 +45,8 @@ namespace Biograf_Booking_Server.Database
             {
                 foreach (Seat s in seats)
                 {
-                    int sId = s.SeatId;
-                    Con.Execute("update tblSeat set ReservationId = @ResId where SeatId = @SeatId", new { ResId = rId, SeatId = sId });
+                    bool booked = true;
+                    Con.Execute("update tblSeat set Booked = @Booked where SeatId = @SeatId", new { Booked = booked, SeatId = s.SeatId });
                 }
             }
         }

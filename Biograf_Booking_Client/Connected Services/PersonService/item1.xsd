@@ -104,6 +104,7 @@
   <xs:element name="ArrayOfSeat" nillable="true" type="tns:ArrayOfSeat" />
   <xs:complexType name="Seat">
     <xs:sequence>
+      <xs:element minOccurs="0" name="Booked" type="xs:boolean" />
       <xs:element minOccurs="0" name="HallId" type="xs:int" />
       <xs:element minOccurs="0" name="Number" type="xs:int" />
       <xs:element minOccurs="0" name="ResId" type="xs:int" />

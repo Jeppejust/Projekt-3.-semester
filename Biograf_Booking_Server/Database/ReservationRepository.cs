@@ -57,5 +57,14 @@ namespace Biograf_Booking_Server.Database
             }
             return resId;
         }
+        public void DeleteTopRes()
+        {
+            string SqlDeleteTop = "DELETE TOP (1) from tblReservation";
+            using (con = new SqlConnection(DataBase.DbConnectionString))
+            {
+                con.Execute(SqlDeleteTop);
+            }
+            
+        }
     }
 }
