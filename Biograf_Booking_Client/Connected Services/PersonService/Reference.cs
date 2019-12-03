@@ -587,6 +587,9 @@ namespace Biograf_Booking_Client.PersonService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool BookedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int HallIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -608,6 +611,19 @@ namespace Biograf_Booking_Client.PersonService {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Booked {
+            get {
+                return this.BookedField;
+            }
+            set {
+                if ((this.BookedField.Equals(value) != true)) {
+                    this.BookedField = value;
+                    this.RaisePropertyChanged("Booked");
+                }
             }
         }
         

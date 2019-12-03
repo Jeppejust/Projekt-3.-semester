@@ -25,6 +25,7 @@ namespace Biograf_Booking_Client.Service
                     seat.ResId = tempS.ResId;
                     seat.Number = tempS.Number;
                     seat.HallId = tempS.HallId;
+                    seat.booked = tempS.Booked;
                     seats.Add(seat);
                 }
                 return seats;
