@@ -12,15 +12,13 @@ namespace Biograf_Booking_Web.Controllers
     public class ReservationController : Controller
     {
         private ReservationService ResService = new ReservationService();
-        private MovieService MovService = new MovieService();
 
         // GET: Reservation
         public ActionResult Create()
         {
-            List<Movie> Movies = MovService.GetMovies();
-            ViewBag.List = Movies;
             return View();
         }
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(Reservation r)
@@ -33,5 +31,7 @@ namespace Biograf_Booking_Web.Controllers
             ResService.InsertReservation(r);
             return View();
         }
+
+
     }
 }

@@ -1,8 +1,9 @@
-﻿<!DOCTYPE html>
+﻿@model Biograf_Booking_Web.Models.Movie
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>Tidsbestilling</title>
+    <title>Film Detaljer</title>
 </head>
 <body>
     <body style="background-color:dimgrey">
@@ -25,12 +26,12 @@
         </style>
 
         <nav>
-            <a style="font-family:Cambria; font-size: 30px; color: black;" href="ShowMovies"> Tilbage </a>
+            <a style="font-family:Cambria; font-size: 30px; color: black;" href="~/Movie/ShowMovies"> Tilbage </a>
         </nav>
 
         <div class="container">
             <div class="img">
-                <img src="C:\Users\Bruger\Desktop\plakater\jokerplakatny.jpg" alt="Joker" class="image">
+                <img src=@Html.DisplayFor(model => model.ImagePath) alt=@Html.DisplayFor(model => model.Title) class="image">
 
             </div>
         </div>
@@ -42,15 +43,15 @@
                     <h2>Vælg din tid:</h2>
                 </div>
         <div class="time"
-                     <nav>
-                            <a style="font-family:Cambria; background-color: white; font-size: 30px; color: black;" href="SeatBooking"> Kl: 16:00 </a>
-                        </nav>
-                     <nav>
-                             <a style="font-family:Cambria; background-color: white; font-size: 30px; color: black;" href="SeatBooking"> Kl: 18:00 </a>
-                     </nav>
-                     <nav>
-                             <a style="font-family:Cambria; background-color: white; font-size: 30px; color: black;" href="SeatBooking"> Kl: 20:30 </a>
-                     </nav>
+            <nav>
+                @Html.ActionLink("16:00", "SeatBooking", new { Time = 1600, id = Model.MovieId })
+            </nav>
+            <nav>
+                @Html.ActionLink("18:30", "SeatBooking", new { Time = 1830, id = Model.MovieId })
+            </nav>
+            <nav>
+                @Html.ActionLink("20:30", "SeatBooking", new { Time = 2030, id = Model.MovieId})
+            </nav>
                 </div>
 
     </body>

@@ -30,5 +30,22 @@ namespace Biograf_Booking_Web.Service
                 return movies;
             }
         }
+
+        public Models.Movie GetMovie(int id)
+        {
+            using (PersonServiceClient proxy = new PersonServiceClient())
+            {
+                Movie m = proxy.GetMovie(id);
+                Models.Movie movie = new Models.Movie();
+                movie.MovieId = m.MovieId;
+                movie.MovieLength = m.MovieLength;
+                movie.PremiereDate = m.PremiereDate;
+                movie.Resume = m.Resume;
+                movie.Title = m.Title;
+                movie.ImagePath = "/" + m.ImagePath;
+                movie.Genre = m.Genre;
+                return movie;
+            }
+        }
     }
 }

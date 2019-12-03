@@ -80,9 +80,9 @@
                 <div class="img">
                     <img src=@Html.DisplayFor(modelItem => item.ImagePath) alt=@Html.DisplayFor(modelItem => item.Title) class="image">
                     <div class="middle">
-                        <a href="~/Reservation/ReserveTime" />
+                        <a href="ShowTimes" />
                         
-                        <div class="text">Book nu</div>
+                        <div class="text">@Html.ActionLink("Book nu", "ShowTimes", new { id = item.MovieId }) </div>
                     </div>
                 </div>
             </div>
