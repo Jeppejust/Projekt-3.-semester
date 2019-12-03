@@ -15,5 +15,10 @@ namespace Biograf_Booking_Web.Controllers
             return View();
         }
 
+        public ActionResult SeatBooking()
+        {
+            return View();
+        }
+
     }
 }
