@@ -318,7 +318,8 @@
     <Content Include="Views\Movie\ShowMovies.cshtml" />
     <Content Include="Views\Movie\ShowMovie.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Movie\SeatBooking.cshtml" />
+    <None Include="Views\Movie\SeatBooking.cshtml" />
+    <None Include="Views\Movie\SeatBooking.cshtml.Bak" />
     <Content Include="Views\Reservation\Create.cshtml" />
     <Content Include="Views\Movie\ShowTimes.cshtml" />
   </ItemGroup>

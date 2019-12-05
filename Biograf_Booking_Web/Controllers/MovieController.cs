@@ -13,7 +13,6 @@ namespace Biograf_Booking_Web.Controllers
     {
         private MovieService MovService = new MovieService();
         private ReservationService ResService = new ReservationService();
-        private List<Seat> seats = new List<Seat>();
         // GET: Movies
         public ActionResult ShowTimes(int id)
         {
@@ -28,21 +27,32 @@ namespace Biograf_Booking_Web.Controllers
         {
             return View(MovService.GetMovies());
         }
+
+        public ActionResult UpdateSeats(IList<int> Seats)
+        {
+            return View(Seats);
+        }
         public ActionResult SeatBooking()
         {
             return View();
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult SeatBooking(int Time, int id , Seat s, Reservation r)
+        public ActionResult SeatBooking(int Time, int id, Reservation r, List<int> seats)
         {
+            r.Seats = new List<Seat>();
+            
+            foreach (var SeatId in seats)
+            {
+                Seat s = new Seat();
+                s.SeatId = SeatId;
+                r.Seats.Add(s);
+            }
             r.Time = Time;
             r.MovieId = id;
             r.Date = DateTime.Now;
             r.CustomerId = 1;
-            r.Seats = new List<Seat>();
-            r.Seats.Add(s);
-            Debug.WriteLine(r.Time + " " + r.MovieId + " " + s.SeatId);
             ResService.InsertReservation(r);
             return View();
         }
