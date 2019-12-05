@@ -35,12 +35,19 @@ namespace Biograf_Booking_Client.View
             this.m = m;
             this.h = h;
             
+            
+            InitializeComponent();
+            UpdateSeats();
+            
+        }
+        private void UpdateSeats()
+        {
             List<Seat> s = new List<Seat>();
             s = FindSeatsByHallId();
             Seats = s;
             foreach (Seat tempS in s)
             {
-                
+
                 if (tempS.booked == true)
                 {
                     tempS.Color = Convert.ToString(Colors.Red);
@@ -50,7 +57,6 @@ namespace Biograf_Booking_Client.View
                     tempS.Color = Convert.ToString(Colors.ForestGreen);
                 }
             }
-            InitializeComponent();
             listViewSeats.ItemsSource = s;
         }
 
@@ -84,7 +90,7 @@ namespace Biograf_Booking_Client.View
             else if (c == Colors.Red)
             {
                 int id = Int32.Parse(xx.Text);
-                MessageBox.Show("" + id);
+                MessageBox.Show("This seat is already booked. Please choose another.");
             }
         }
 
@@ -100,7 +106,6 @@ namespace Biograf_Booking_Client.View
                 {
                     if (s.SeatId == Marked)
                     {
-                        MessageBox.Show("added seat");
                         r.Seats.Add(s);
                     }
                 }
@@ -121,6 +126,7 @@ namespace Biograf_Booking_Client.View
                     if (b)
                     {
                         MessageBox.Show("Reservation gennemført");
+                        UpdateSeats();
                     }
                     else
                     {
