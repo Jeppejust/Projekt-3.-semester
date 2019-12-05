@@ -29,7 +29,7 @@ namespace Biograf_Booking_Client.View
         private ReservationCtrl ResCtrl = new ReservationCtrl();
         private seatCtrl seatCtrl = new seatCtrl();
 
-
+        // Creating new seat booking by finding movie, hall and seats
         public SeatBooking(Movie m, Hall h)
         {
             this.m = m;
@@ -52,14 +52,17 @@ namespace Biograf_Booking_Client.View
             }
             InitializeComponent();
             listViewSeats.ItemsSource = s;
-            
         }
+
+        // Finding seats by ID
         private List<Seat> FindSeatsByHallId()
         {
             List<Seat> seats = new List<Seat>();
             seats = seatCtrl.FindSeatsByHallId(h.HallId);
             return seats;
         }
+
+        // Mousedown event for choosing seats
         private void TextBlock_MouseDown(object sender, MouseButtonEventArgs e)
         {
             var xx = sender as TextBlock;
@@ -85,6 +88,7 @@ namespace Biograf_Booking_Client.View
             }
         }
 
+        // Button which creates a new reservation
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Reservation r = new Reservation();
@@ -104,9 +108,9 @@ namespace Biograf_Booking_Client.View
             r.Date = DateTime.Now;
             r.CustomerId = 1;
             Reserve(r);
-
-            
         }
+
+        // Messagebox with result
         private void Reserve(Reservation r)
         {
             MessageBoxResult result = MessageBox.Show("Vil du fortsætte?", "POP UP", MessageBoxButton.YesNo);
@@ -126,9 +130,7 @@ namespace Biograf_Booking_Client.View
                 case MessageBoxResult.No:
                     MessageBox.Show("Annulleret");
                     break;
-
             }
         }
-
     }
 }
