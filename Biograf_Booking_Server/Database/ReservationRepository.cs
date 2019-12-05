@@ -7,6 +7,7 @@ using Dapper;
 using System.Data.SqlClient;
 using System.Data;
 using Biograf_Booking_Server.Model;
+using System.Data.SqlTypes;
 
 namespace Biograf_Booking_Server.Database
 {
@@ -37,7 +38,7 @@ namespace Biograf_Booking_Server.Database
             string SqlInsertReservation = "insert into tblReservation (ResDate, ResTime, CustomerId, MovieId) values (@ResDate, @ResTime, @CustomerId, @MovieId)";
             
             Reservation CurrR = r;
-            DateTime CurrDateTime = r.Date;
+            DateTime CurrDateTime = r.Date;            
             string CurrTime = CurrDateTime.ToString("HH:mm:ss");
             string CurrDate = CurrDateTime.ToString("yyyy-MM-dd");
 

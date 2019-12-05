@@ -29,18 +29,25 @@ namespace Biograf_Booking_Client.View
         private ReservationCtrl ResCtrl = new ReservationCtrl();
         private seatCtrl seatCtrl = new seatCtrl();
 
-
+        // Creating new seat booking by finding movie, hall and seats
         public SeatBooking(Movie m, Hall h)
         {
             this.m = m;
             this.h = h;
             
+            
+            InitializeComponent();
+            UpdateSeats();
+            
+        }
+        private void UpdateSeats()
+        {
             List<Seat> s = new List<Seat>();
             s = FindSeatsByHallId();
             Seats = s;
             foreach (Seat tempS in s)
             {
-                
+
                 if (tempS.booked == true)
                 {
                     tempS.Color = Convert.ToString(Colors.Red);
@@ -50,16 +57,18 @@ namespace Biograf_Booking_Client.View
                     tempS.Color = Convert.ToString(Colors.ForestGreen);
                 }
             }
-            InitializeComponent();
             listViewSeats.ItemsSource = s;
-            
         }
+
+        // Finding seats by ID
         private List<Seat> FindSeatsByHallId()
         {
             List<Seat> seats = new List<Seat>();
             seats = seatCtrl.FindSeatsByHallId(h.HallId);
             return seats;
         }
+
+        // Mousedown event for choosing seats
         private void TextBlock_MouseDown(object sender, MouseButtonEventArgs e)
         {
             var xx = sender as TextBlock;
@@ -81,10 +90,11 @@ namespace Biograf_Booking_Client.View
             else if (c == Colors.Red)
             {
                 int id = Int32.Parse(xx.Text);
-                MessageBox.Show("" + id);
+                MessageBox.Show("This seat is already booked. Please choose another.");
             }
         }
 
+        // Button which creates a new reservation
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Reservation r = new Reservation();
@@ -96,7 +106,6 @@ namespace Biograf_Booking_Client.View
                 {
                     if (s.SeatId == Marked)
                     {
-                        MessageBox.Show("added seat");
                         r.Seats.Add(s);
                     }
                 }
@@ -104,9 +113,9 @@ namespace Biograf_Booking_Client.View
             r.Date = DateTime.Now;
             r.CustomerId = 1;
             Reserve(r);
-
-            
         }
+
+        // Messagebox with result
         private void Reserve(Reservation r)
         {
             MessageBoxResult result = MessageBox.Show("Vil du fortsætte?", "POP UP", MessageBoxButton.YesNo);
@@ -117,6 +126,7 @@ namespace Biograf_Booking_Client.View
                     if (b)
                     {
                         MessageBox.Show("Reservation gennemført");
+                        UpdateSeats();
                     }
                     else
                     {
@@ -126,9 +136,7 @@ namespace Biograf_Booking_Client.View
                 case MessageBoxResult.No:
                     MessageBox.Show("Annulleret");
                     break;
-
             }
         }
-
     }
 }

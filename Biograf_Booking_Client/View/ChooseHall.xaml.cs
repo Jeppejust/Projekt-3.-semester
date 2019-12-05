@@ -19,6 +19,7 @@ namespace Biograf_Booking_Client.View
     /// <summary>
     /// Interaction logic for ChooseHall.xaml
     /// </summary>
+    
     public partial class ChooseHall : Window
     {
         private Movie movie = null;
@@ -30,8 +31,9 @@ namespace Biograf_Booking_Client.View
             halls = FindHalls(m.MovieId);
             InitializeComponent();
             ListViewHalls.ItemsSource = halls;
-
         }
+
+        // Creating a return instance of hall and compares id by foreach-looping
         private Hall GetHall(int i)
         {
             Hall hall = new Hall();
@@ -52,6 +54,8 @@ namespace Biograf_Booking_Client.View
             }
             return hall;
         }
+
+        // Finding halls for given movie
         private List<Hall> FindHalls(int movieId)
         {
             MovieCtrl movieCtrl = new MovieCtrl();
@@ -59,6 +63,7 @@ namespace Biograf_Booking_Client.View
             return halls;
         }
 
+        // Click event for choosing hall
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             var xx = sender as Button;
@@ -71,6 +76,5 @@ namespace Biograf_Booking_Client.View
                 this.Close();
             }
         }
-        
     }
 }

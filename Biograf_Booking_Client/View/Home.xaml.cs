@@ -25,12 +25,15 @@ namespace Biograf_Booking_Client.View
     {
         MovieCtrl movieCtrl = new MovieCtrl();
         List<Movie> movies = new List<Movie>();
+
         public Home()
         {
             InitializeComponent();
             movies = movieCtrl.GetAllMovies();
             ShowMovies(movies);
         }
+
+        // Finding available movies 
         public void ShowMovies(List<Movie> movies)
         {
             if (movies != null)
@@ -41,8 +44,9 @@ namespace Biograf_Booking_Client.View
             {
                 MessageBox.Show("no movies were found");
             }
-                
         }
+
+        // Finding halls for choosen movie
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
         {
             var xx = sender as TextBlock;
@@ -51,6 +55,8 @@ namespace Biograf_Booking_Client.View
             ch.Topmost = true;
             ch.Show();
         }
+
+        // Finding selected movie
         private Movie FindMovie(string title)
         {
             Movie movie = null;
