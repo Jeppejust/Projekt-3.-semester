@@ -70,5 +70,9 @@ namespace Biograf_Booking_Server.Service
         {
             return SeCtrl.FindSeatsByHallId(HallId);
         }
+        public Customer InsertCustomer(Customer c)
+        {
+            return CustCtrl.InsertCustomer(c);
+        }
     }
 }

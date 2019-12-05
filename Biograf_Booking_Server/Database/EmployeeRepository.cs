@@ -59,7 +59,7 @@ namespace Biograf_Booking_Server.Database
         public string GetSaltFromEmployeeByUsername(string username)
         {
             string s="";
-            string sqlGetEmployeeById = "select * from tblEmployee where Username = @username";
+            string sqlGetEmployeeByUsername = "select * from tblEmployee where Username = @username";
             using (con = new SqlConnection(DataBase.DbConnectionString))
             {
                 con.Open();
@@ -67,7 +67,7 @@ namespace Biograf_Booking_Server.Database
                 
                 try
                 {
-                    emp = con.Query<Employee>(sqlGetEmployeeById, new { username }).FirstOrDefault();
+                    emp = con.Query<Employee>(sqlGetEmployeeByUsername, new { username }).FirstOrDefault();
                     s = emp.Salt;
                 }
                 catch (Exception)
