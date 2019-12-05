@@ -33,7 +33,7 @@ namespace Biograf_Booking_Client.View
             ListViewHalls.ItemsSource = halls;
         }
 
-        // Creating an instance of hall and compares id by foreach-looping
+        // Creating an returninstance of hall and compares id by foreach-looping
         private Hall GetHall(int i)
         {
             Hall hall = new Hall();
