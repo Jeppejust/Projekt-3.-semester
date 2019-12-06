@@ -9,7 +9,7 @@ using Biograf_Booking_Server.Database;
 
 namespace Biograf_Booking_Server.Controller
 {
-    class EmployeeCtrl
+    public class EmployeeCtrl
     {
         private IEmployeeRepository<Employee> IEmpRepo = null;
         public EmployeeCtrl()
