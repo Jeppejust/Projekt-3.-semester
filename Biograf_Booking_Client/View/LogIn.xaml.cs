@@ -31,14 +31,13 @@ namespace Biograf_Booking_Client.View
             InitializeComponent();
         }
 
-
+        // Button to login confirmation
         private void button_Click(object sender, RoutedEventArgs e)
         {
             string Username = tbUsername.Text;
             string Password = tbPassword.Password;
             bool Login = false;
             Login = empCtrl.Login(Username, Password);
-
 
             if (Login==false)
             {
@@ -49,13 +48,7 @@ namespace Biograf_Booking_Client.View
                 MessageBox.Show("You are now logged in!!!");
                 home.Show();
                 Close();
-                
             }
-        }
-
-        private void tbPassword_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
         }
     }
 }
