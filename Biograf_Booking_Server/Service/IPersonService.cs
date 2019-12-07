@@ -13,24 +13,34 @@ namespace Biograf_Booking_Server.Service
     {
         [OperationContract]
         List<Employee> GetEmployees();
+
         [OperationContract]
         List<Customer> GetCustomers();
+
         [OperationContract]
         Employee GetEmployeeById(int SearchId);
+
         [OperationContract]
         bool LogOn(string user, string pass);
+
         [OperationContract]
         List<Movie> GetAllMovies();
+
         [OperationContract]
         Movie GetMovie(int id);
+
         [OperationContract]
         List<Hall> FindHalls(int id);
+
         [OperationContract]
         List<Reservation> FindAllReservations();
+
         [OperationContract]
         Reservation FindReservationById(int Id);
+
         [OperationContract]
         bool InsertReservation(Reservation r);
+
         [OperationContract]
         List<Seat> FindSeatsByHallId(int HallId);
     }
