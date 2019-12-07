@@ -29,8 +29,13 @@ namespace Biograf_Booking_Server.Controller
         }
         public bool InsertReservation(Reservation r)
         {
+            bool HasConflict = false;
             bool Inserted = false;
-            bool HasConflict = CheckSeats(r.Seats);
+            if (r.Seats==null)
+            {
+                HasConflict = true;
+            }
+            HasConflict = CheckSeats(r.Seats);
             if (HasConflict == false)
             {
                 bool Ins = IResRepo.InsertReservation(r);

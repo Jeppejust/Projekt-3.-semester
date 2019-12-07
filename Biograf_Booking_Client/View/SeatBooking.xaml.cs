@@ -110,9 +110,16 @@ namespace Biograf_Booking_Client.View
                     }
                 }
             }
-            r.Date = DateTime.Now;
-            r.CustomerId = 1;
-            Reserve(r);
+            if (r.Seats == null)
+            {
+                MessageBox.Show("You have not clicked on any seats.");
+            }
+            else
+            {
+                r.Date = DateTime.Now;
+                r.CustomerId = 1;
+                Reserve(r);
+            }
         }
 
         // Messagebox with result
