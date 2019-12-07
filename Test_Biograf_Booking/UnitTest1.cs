@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Biograf_Booking_Server.Model;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Diagnostics;
 using ps = Biograf_Booking_Server.Controller;
 
@@ -26,7 +27,7 @@ namespace Test_Biograf_Booking
         [TestMethod]
         public void TestLoginMissingPass()
         {
-            //arrenge
+            //Arrange
             string username = "admin";
             string pass = "";
             bool verified = false;
@@ -42,7 +43,7 @@ namespace Test_Biograf_Booking
         [TestMethod]
         public void TestLoginMissingUser()
         {
-            //arrenge
+            //Arrange
             string username = "";
             string pass = "admin";
             bool verified = false;
@@ -58,7 +59,7 @@ namespace Test_Biograf_Booking
         [TestMethod]
         public void TestLoginMissingUserAndPass()
         {
-            //arrenge
+            //Arrange
             string username = "";
             string pass = "";
             bool verified = false;
@@ -71,5 +72,25 @@ namespace Test_Biograf_Booking
             //assert
             Assert.IsFalse(verified);
         }
+        [TestMethod]
+        public void TestInsertResSuccess()
+        {
+            //Arrange
+            Reservation res = new Reservation();
+            res.MovieId = 1;
+            res.CustomerId = 1;
+            Seat s = new Seat();
+            s.SeatId = 1;
+            res.Seats.Add(s);
+            bool verified = false;
+            using(PersonService.PersonServiceClient proxy = new PersonService.PersonServiceClient())
+            {
+                //Act
+                verified = proxy.InsertReservation(res);
+            }
+            //Assert
+            Assert.IsTrue(verified);
+        }
+
     }
 }
