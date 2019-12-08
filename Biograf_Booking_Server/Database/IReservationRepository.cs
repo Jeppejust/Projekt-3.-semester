@@ -13,5 +13,6 @@ namespace Biograf_Booking_Server.Database
         Reservation FindReservationById(int Id);
         bool InsertReservation(Reservation r);
         int FindMaxRes();
+        void DeleteTopRes();
     }
 }

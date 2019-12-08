@@ -31,11 +31,15 @@ namespace Biograf_Booking_Server.Controller
         {
             bool HasConflict = false;
             bool Inserted = false;
-            if (r.Seats==null)
+            
+            if (r.Seats.Count<=0|| r.Seats==null)
             {
                 HasConflict = true;
             }
-            HasConflict = CheckSeats(r.Seats);
+            else
+            {
+                HasConflict = CheckSeats(r.Seats);
+            }
             if (HasConflict == false)
             {
                 bool Ins = IResRepo.InsertReservation(r);

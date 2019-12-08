@@ -36,16 +36,23 @@ namespace Biograf_Booking_Server.Database
         public bool InsertReservation(Reservation r)
         {
             string SqlInsertReservation = "insert into tblReservation (ResDate, ResTime, CustomerId, MovieId) values (@ResDate, @ResTime, @CustomerId, @MovieId)";
-            
-            Reservation CurrR = r;
             DateTime CurrDateTime = r.Date;            
             string CurrTime = CurrDateTime.ToString("HH:mm:ss");
             string CurrDate = CurrDateTime.ToString("yyyy-MM-dd");
-
+            bool Inserted = false;
             using (con = new SqlConnection(DataBase.DbConnectionString))
             {
-                con.Execute(SqlInsertReservation, new { ResDate = CurrDate, ResTime = CurrTime, CustomerId = 1, MovieId = r.MovieId });
-                return true;
+                try
+                {
+                    con.Execute(SqlInsertReservation, new { ResDate = CurrDate, ResTime = CurrTime, CustomerId = r.CustomerId, MovieId = r.MovieId });
+                    Inserted = true;
+                }
+                catch (Exception)
+                {
+                    Inserted = false;
+                }
+                
+                return Inserted;
             }
         }
         public int FindMaxRes()

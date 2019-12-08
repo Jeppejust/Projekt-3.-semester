@@ -18,6 +18,7 @@ namespace Biograf_Booking_Client.Controller
         }
         public bool InsertReservation(Reservation r)
         {
+            r.CustomerId = 1;
             return ResSer.InsertReservation(r);
         }
 
