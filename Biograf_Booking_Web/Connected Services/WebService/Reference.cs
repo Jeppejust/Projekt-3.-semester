@@ -362,6 +362,9 @@ namespace Biograf_Booking_Web.WebService {
         private int RowsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime ShowDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.TimeSpan ShowTimeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -412,6 +415,19 @@ namespace Biograf_Booking_Web.WebService {
                 if ((this.RowsField.Equals(value) != true)) {
                     this.RowsField = value;
                     this.RaisePropertyChanged("Rows");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime ShowDate {
+            get {
+                return this.ShowDateField;
+            }
+            set {
+                if ((this.ShowDateField.Equals(value) != true)) {
+                    this.ShowDateField = value;
+                    this.RaisePropertyChanged("ShowDate");
                 }
             }
         }
@@ -571,6 +587,9 @@ namespace Biograf_Booking_Web.WebService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool BookedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int HallIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -592,6 +611,19 @@ namespace Biograf_Booking_Web.WebService {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Booked {
+            get {
+                return this.BookedField;
+            }
+            set {
+                if ((this.BookedField.Equals(value) != true)) {
+                    this.BookedField = value;
+                    this.RaisePropertyChanged("Booked");
+                }
             }
         }
         

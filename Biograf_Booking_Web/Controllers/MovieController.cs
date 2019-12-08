@@ -13,6 +13,8 @@ namespace Biograf_Booking_Web.Controllers
     {
         private MovieService MovService = new MovieService();
         private ReservationService ResService = new ReservationService();
+        private SeatService sService = new SeatService();
+        
         // GET: Movies
         public ActionResult ShowTimes(int id)
         {
@@ -28,27 +30,43 @@ namespace Biograf_Booking_Web.Controllers
             return View(MovService.GetMovies());
         }
 
-        public ActionResult UpdateSeats(IList<int> Seats)
+        public ActionResult SeatBooking(int id)
         {
-            return View(Seats);
-        }
-        public ActionResult SeatBooking()
-        {
-            return View();
+
+            return View(sService.FindSeatsByHallId(id)); ;
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult SeatBooking(int Time, int id, Reservation r, List<int> seats)
+        public ActionResult SeatBooking(int Time, int id, Reservation r, string reservedSeats)
         {
             r.Seats = new List<Seat>();
-            
-            foreach (var SeatId in seats)
+            string[] foundReservedSeats = null; ;
+            // if reservation string (hidden field in form) has real content
+            if (!string.IsNullOrWhiteSpace(reservedSeats))
             {
-                Seat s = new Seat();
-                s.SeatId = SeatId;
-                r.Seats.Add(s);
+                foundReservedSeats = reservedSeats.Split(':');
             }
+            // Handle the reservations in some way
+            if (foundReservedSeats != null && foundReservedSeats.Length > 0)
+            {
+                foreach (var aReservedSeat in foundReservedSeats)
+                {
+                    if (int.TryParse(aReservedSeat.ToString(), out int seatNum))
+                    {
+                        Debug.WriteLine(seatNum);
+                        Seat s = new Seat();
+                        s.SeatId = seatNum;
+                        r.Seats.Add(s);
+                    }
+                }
+            }
+            else
+            {
+                // what to do if no reservations
+                Response.Write("Ingen sæder markeret");
+            }
+
             r.Time = Time;
             r.MovieId = id;
             r.Date = DateTime.Now;

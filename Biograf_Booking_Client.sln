@@ -14,6 +14,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Biograf_Booking_Web", "Biog
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test_Biograf_Booking", "Test_Biograf_Booking\Test_Biograf_Booking.csproj", "{194C489B-E39D-4248-9E21-34549CB5A381}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SelfHost_service_Bio", "SelfHost_service_Bio\SelfHost_service_Bio.csproj", "{60D8E8CD-D3C4-4868-92E4-7BF42572B7C7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,6 +38,10 @@ Global
 		{194C489B-E39D-4248-9E21-34549CB5A381}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{194C489B-E39D-4248-9E21-34549CB5A381}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{194C489B-E39D-4248-9E21-34549CB5A381}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60D8E8CD-D3C4-4868-92E4-7BF42572B7C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60D8E8CD-D3C4-4868-92E4-7BF42572B7C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60D8E8CD-D3C4-4868-92E4-7BF42572B7C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60D8E8CD-D3C4-4868-92E4-7BF42572B7C7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
