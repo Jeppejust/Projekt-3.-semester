@@ -18,10 +18,21 @@
                 <ol class="allSeats">
                     <li class="row row--1">
                         <ol class="seats" type="A">
-                            
+                            var row = 1
+                            var i = 1
+                            @foreach (var item in Model)
+                            {
+
+                                if (item.SeatId == 13 || item.SeatId == 25 ||item.SeatId == 37 || item.SeatId == 49)
+                                {
+
+                                }
+                                i++;
+                            }
+
                             @for (int i = 1; i < 13; i++)
                             {
-                                @Html.
+                                
                                 <li class="seat">
                                     <input type="checkbox" id=@i value="0" name="seat" onclick="seatchange(@i)"  />
                                     <label for="@i">@i</label>
