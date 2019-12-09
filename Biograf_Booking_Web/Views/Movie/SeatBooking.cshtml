@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Biograf_Booking_Web.Models.Seat>
+﻿@model IList<Biograf_Booking_Web.Models.Seat>
 <!DOCTYPE html>
 
 <html>
@@ -6,7 +6,8 @@
     <title>Sæde reservation</title>
     <link href="~/Content/StyleSheetSeats.css" rel="stylesheet" type="text/css" />
 </head>
-<body style="background-color:dimgrey">>
+<body style="background-color:dimgrey">
+    >
 
     @using (Html.BeginForm())
     {
@@ -18,25 +19,21 @@
                 <ol class="allSeats">
                     <li class="row row--1">
                         <ol class="seats" type="A">
-                            var row = 1
-                            var i = 1
-                            @foreach (var item in Model)
-                            {
-
-                                if (item.SeatId == 13 || item.SeatId == 25 ||item.SeatId == 37 || item.SeatId == 49)
-                                {
-
-                                }
-                                i++;
-                            }
-
                             @for (int i = 1; i < 13; i++)
                             {
                                 
+                                var booked = "";
+                                var v = i - 1;
+                               
+                                if (Model[v].booked)
+                                {
+                                    booked = "disabled";
+                                }
                                 <li class="seat">
-                                    <input type="checkbox" id=@i value="0" name="seat" onclick="seatchange(@i)"  />
+                                    <input type="checkbox" id=@i value="0" name="seat" onclick="seatchange(@i)" @booked />
                                     <label for="@i">@i</label>
                                 </li>
+
                             }
                         </ol>
                     </li>
@@ -45,10 +42,19 @@
                         <ol class="seats" type="A">
                             @for (int i = 13; i < 25; i++)
                             {
+                                
+                                var booked = "";
+                                var v = i - 1;
+                                
+                                if (Model[v].booked)
+                                {
+                                    booked = "disabled";
+                                }
                                 <li class="seat">
-                                    <input type="checkbox" id=@i value="0" name="seat" onclick="seatchange(@i)" />
+                                    <input type="checkbox" id=@i value="0" name="seat" onclick="seatchange(@i)" @booked />
                                     <label for="@i">@i</label>
                                 </li>
+
                             }
                         </ol>
                     </li>
@@ -56,10 +62,19 @@
                         <ol class="seats" type="A">
                             @for (int i = 25; i < 37; i++)
                             {
+                                
+                                var booked = "";
+                                var v = i - 1;
+                               
+                                if (Model[v].booked)
+                                {
+                                    booked = "disabled";
+                                }
                                 <li class="seat">
-                                    <input type="checkbox" id=@i value="0" name="seat" onclick="seatchange(@i)" />
+                                    <input type="checkbox" id=@i value="0" name="seat" onclick="seatchange(@i)" @booked />
                                     <label for="@i">@i</label>
                                 </li>
+
                             }
                         </ol>
                     </li>
@@ -67,10 +82,19 @@
                         <ol class="seats" type="A">
                             @for (int i = 37; i < 49; i++)
                             {
+                                
+                                var booked = "";
+                                var v = i - 1;
+                                
+                                if (Model[v].booked)
+                                {
+                                    booked = "disabled";
+                                }
                                 <li class="seat">
-                                    <input type="checkbox" id=@i value="0" name="seat" onclick="seatchange(@i)" />
+                                    <input type="checkbox" id=@i value="0" name="seat" onclick="seatchange(@i)" @booked />
                                     <label for="@i">@i</label>
                                 </li>
+
                             }
                         </ol>
                     </li>
@@ -78,10 +102,19 @@
                         <ol class="seats" type="A">
                             @for (int i = 49; i < 61; i++)
                             {
-                                <li class="seat">
-                                    <input type="checkbox" id=@i value="0" name="seat" onclick="seatchange(@i)" />
-                                    <label for="@i">@i</label>
-                                </li>
+
+                                var booked = "";
+                                var v = i - 1;
+                               
+                                if (Model[v].booked)
+                                {
+                                    booked = "disabled";
+                                }
+                            <li class="seat">
+                                <input type="checkbox" id=@i value="0" name="seat" onclick="seatchange(@i)" @booked />
+                                <label for="@i">@i</label>
+                            </li>
+                                
                             }
                         </ol>
                     </li>
@@ -89,10 +122,19 @@
                         <ol class="seats" type="A">
                             @for (int i = 61; i < 73; i++)
                             {
+
+                                var booked = "";
+                                var v = i - 1;
+                             
+                                if (Model[v].booked)
+                                {
+                                    booked = "disabled";
+                                }
                                 <li class="seat">
-                                    <input type="checkbox" id=@i value="0" name="seat" onclick="seatchange(@i)" />
+                                    <input type="checkbox" id=@i value="0" name="seat" onclick="seatchange(@i)" @booked />
                                     <label for="@i">@i</label>
                                 </li>
+
                             }
                         </ol>
                     </li>
@@ -100,10 +142,19 @@
                         <ol class="seats" type="A">
                             @for (int i = 73; i < 85; i++)
                             {
+
+                                var booked = "";
+                                var v = i - 1;
+                                
+                                if (Model[v].booked)
+                                {
+                                    booked = "disabled";
+                                }
                                 <li class="seat">
-                                    <input type="checkbox" id=@i value="0" name="seat" onclick="seatchange(@i)" />
+                                    <input type="checkbox" id=@i value="0" name="seat" onclick="seatchange(@i)" @booked />
                                     <label for="@i">@i</label>
                                 </li>
+
                             }
                         </ol>
                     </li>

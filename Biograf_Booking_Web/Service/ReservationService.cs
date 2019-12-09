@@ -17,6 +17,7 @@ namespace Biograf_Booking_Web.Service
                 res.ReservationId = r.ReservationId;
                 res.MovieId = r.MovieId;
                 res.Date = r.Date;
+                res.CustomerId = r.CustomerId;
                 res.Seats = new List<Seat>();
 
                 foreach (Models.Seat s in r.Seats)

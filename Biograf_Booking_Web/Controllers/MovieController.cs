@@ -70,9 +70,10 @@ namespace Biograf_Booking_Web.Controllers
             r.Time = Time;
             r.MovieId = id;
             r.Date = DateTime.Now;
-            r.CustomerId = 1;
+            r.CustomerId = 3;
+            
             ResService.InsertReservation(r);
-            return View();
+            return RedirectToAction("ShowMovies");
         }
 
     }
