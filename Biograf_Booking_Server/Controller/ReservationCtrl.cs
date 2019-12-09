@@ -2,6 +2,7 @@
 using Biograf_Booking_Server.Model;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,9 +37,9 @@ namespace Biograf_Booking_Server.Controller
             {
                 HasConflict = true;
             }
-            else
+            if (CheckSeatsForConflict(r.Seats) == true)
             {
-                HasConflict = CheckSeats(r.Seats);
+                HasConflict = true;
             }
             if (HasConflict == false)
             {
@@ -53,11 +54,11 @@ namespace Biograf_Booking_Server.Controller
 
             return Inserted;
         }
-        public bool CheckSeats (List<Seat> s)
+        public bool CheckSeatsForConflict(List<Seat> s)
         {
             bool HasConflict = false;
             List<Seat> tempSeats = ISeatRepo.FindSeatsBySeatId(s);
-            foreach (Seat tempS in s)
+            foreach (Seat tempS in tempSeats)
             {
                 if (tempS.Booked==true)
                 {

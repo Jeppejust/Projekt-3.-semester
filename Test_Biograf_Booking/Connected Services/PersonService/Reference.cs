@@ -80,6 +80,12 @@ namespace Test_Biograf_Booking.PersonService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPersonService/FindSeatsByHallId", ReplyAction="http://tempuri.org/IPersonService/FindSeatsByHallIdResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<Biograf_Booking_Server.Model.Seat>> FindSeatsByHallIdAsync(int HallId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPersonService/LoginCustomer", ReplyAction="http://tempuri.org/IPersonService/LoginCustomerResponse")]
+        Biograf_Booking_Server.Model.Customer LoginCustomer(string email, string pass);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPersonService/LoginCustomer", ReplyAction="http://tempuri.org/IPersonService/LoginCustomerResponse")]
+        System.Threading.Tasks.Task<Biograf_Booking_Server.Model.Customer> LoginCustomerAsync(string email, string pass);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -195,6 +201,14 @@ namespace Test_Biograf_Booking.PersonService {
         
         public System.Threading.Tasks.Task<System.Collections.Generic.List<Biograf_Booking_Server.Model.Seat>> FindSeatsByHallIdAsync(int HallId) {
             return base.Channel.FindSeatsByHallIdAsync(HallId);
+        }
+        
+        public Biograf_Booking_Server.Model.Customer LoginCustomer(string email, string pass) {
+            return base.Channel.LoginCustomer(email, pass);
+        }
+        
+        public System.Threading.Tasks.Task<Biograf_Booking_Server.Model.Customer> LoginCustomerAsync(string email, string pass) {
+            return base.Channel.LoginCustomerAsync(email, pass);
         }
     }
 }

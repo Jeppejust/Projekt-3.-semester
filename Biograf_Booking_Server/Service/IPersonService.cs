@@ -43,5 +43,8 @@ namespace Biograf_Booking_Server.Service
 
         [OperationContract]
         List<Seat> FindSeatsByHallId(int HallId);
+
+        [OperationContract]
+        Customer LoginCustomer(string email, string pass);
     }
 }
