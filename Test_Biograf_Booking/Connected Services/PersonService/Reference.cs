@@ -86,6 +86,12 @@ namespace Test_Biograf_Booking.PersonService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPersonService/LoginCustomer", ReplyAction="http://tempuri.org/IPersonService/LoginCustomerResponse")]
         System.Threading.Tasks.Task<Biograf_Booking_Server.Model.Customer> LoginCustomerAsync(string email, string pass);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPersonService/InsertCustomer", ReplyAction="http://tempuri.org/IPersonService/InsertCustomerResponse")]
+        Biograf_Booking_Server.Model.Customer InsertCustomer(Biograf_Booking_Server.Model.Customer c);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPersonService/InsertCustomer", ReplyAction="http://tempuri.org/IPersonService/InsertCustomerResponse")]
+        System.Threading.Tasks.Task<Biograf_Booking_Server.Model.Customer> InsertCustomerAsync(Biograf_Booking_Server.Model.Customer c);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -209,6 +215,14 @@ namespace Test_Biograf_Booking.PersonService {
         
         public System.Threading.Tasks.Task<Biograf_Booking_Server.Model.Customer> LoginCustomerAsync(string email, string pass) {
             return base.Channel.LoginCustomerAsync(email, pass);
+        }
+        
+        public Biograf_Booking_Server.Model.Customer InsertCustomer(Biograf_Booking_Server.Model.Customer c) {
+            return base.Channel.InsertCustomer(c);
+        }
+        
+        public System.Threading.Tasks.Task<Biograf_Booking_Server.Model.Customer> InsertCustomerAsync(Biograf_Booking_Server.Model.Customer c) {
+            return base.Channel.InsertCustomerAsync(c);
         }
     }
 }

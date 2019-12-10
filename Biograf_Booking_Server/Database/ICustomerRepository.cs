@@ -13,6 +13,6 @@ namespace Biograf_Booking_Server.Database
         string GetSaltFromCustomerByEmail(string email);
         Customer LogOn(string email, string pass);
         bool InsertCustomer(Customer c);
-        Customer GetTopCustomer();
+        Customer GetCustomerByEmail(string email);
     }
 }

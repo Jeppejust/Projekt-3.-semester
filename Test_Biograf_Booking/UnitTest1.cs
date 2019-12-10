@@ -171,6 +171,7 @@ namespace Test_Biograf_Booking
             //Assert
             Assert.IsFalse(verified);
         }
+        [TestMethod]
         public void TestLoginCustomerSuccesful()
         {
             //arrenge
@@ -186,6 +187,7 @@ namespace Test_Biograf_Booking
             //assert
             Assert.IsNotNull(customer);
         }
+        [TestMethod]
         public void TestLoginCustomerMissingEmail()
         {
             //arrenge
@@ -201,6 +203,7 @@ namespace Test_Biograf_Booking
             //assert
             Assert.IsNull(customer);
         }
+        [TestMethod]
         public void TestLoginCustomerMissingPass()
         {
             //arrenge
@@ -216,6 +219,7 @@ namespace Test_Biograf_Booking
             //assert
             Assert.IsNull(customer);
         }
+        [TestMethod]
         public void TestLoginCustomerMissingEmailAndPass()
         {
             //arrenge
@@ -230,6 +234,22 @@ namespace Test_Biograf_Booking
             }
             //assert
             Assert.IsNull(customer);
+        }
+        [TestMethod]
+        public void TestInsertCustomerSucces()
+        {
+            Customer c = new Customer();
+            c.Email = "just-jeppe@msn.dk"; //If it fails try another mail
+            c.Password = "onion";
+            c.FName = "Jeppe";
+            c.LName = "Larsen";
+            c.PhoneNo = "45454545";
+            
+            using (PersonService.PersonServiceClient proxy = new PersonService.PersonServiceClient())
+            {
+                c = proxy.InsertCustomer(c);
+            }
+            Assert.IsNotNull(c);
         }
     }
 }

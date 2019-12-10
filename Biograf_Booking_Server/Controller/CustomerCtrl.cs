@@ -62,15 +62,16 @@ namespace Biograf_Booking_Server.Controller
             rng.GetBytes(buff);
             return Convert.ToBase64String(buff);
         }
-
+        
         public Customer InsertCustomer(Customer c)
         {
             Customer tempC = new Customer();
             c.Salt = CreateSalt();
+            c.Password = GenerateSHA256Hash(c.Password, c.Salt);
             bool ins = ICustRepo.InsertCustomer(c);
             if (ins==true)
             {
-                tempC = ICustRepo.GetTopCustomer();
+                tempC = ICustRepo.GetCustomerByEmail(c.Email);
             }
             return tempC;
         }

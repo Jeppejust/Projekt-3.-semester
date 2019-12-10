@@ -66,19 +66,29 @@ namespace Biograf_Booking_Server.Database
         public bool InsertCustomer(Customer c)
         {
             string SqlInsertCustomer = "insert into tblCustomer(FName, LName, PhoneNo, Email, PassWord, Salt) values (@FName, @LName, @phoneNo,@Email ,@PassWord ,@Salt)";
-            using (con = new SqlConnection(DataBase.DbConnectionString))
+            bool inserted = false;
+            using (con = new SqlConnection(DataBase.DbConnectionString))   
             {
-                con.Execute(SqlInsertCustomer, new { FName = c.FName, LName = c.LName, PhoneNo = c.PhoneNo, Email = c.Email, Password = c.Password, Salt = c.Salt });
-                return true;
+                try
+                {
+                    con.Execute(SqlInsertCustomer, new { FName = c.FName, LName = c.LName, PhoneNo = c.PhoneNo, Email = c.Email, Password = c.Password, Salt = c.Salt });
+                    inserted = true;
+                }
+                catch (Exception)
+                {
+                    inserted = false;
+                }
+
+                return inserted;
             }
         }
-        public Customer GetTopCustomer()
+        public Customer GetCustomerByEmail(string email)
         {
             Customer c = new Customer();
-            string SqlSelectTop = "SELECT TOP (1) from tblCustomer";
+            string SqlGetCustomerByEmail = "select * from tblCustomer where Email = @Email";
             using (con = new SqlConnection(DataBase.DbConnectionString))
             {
-                c = con.Query<Customer>(SqlSelectTop).First();
+                c = con.Query<Customer>(SqlGetCustomerByEmail, new { email }).FirstOrDefault();
             }
             return c;
         }
