@@ -27,17 +27,13 @@ namespace Biograf_Booking_Server.Database
         }
         public Customer LogOn(string email, string pass)
         {
-            string sqlGetAccount = "SELECT DISTINCT Email, Password, Salt FROM tblCustomer WHERE Email = @email AND Password = @pass";
+            string sqlGetAccount = "SELECT DISTINCT Email, Password FROM tblCustomer WHERE Email = @email AND Password = @pass";
+            Customer cus = new Customer();
             using (con = new SqlConnection(DataBase.DbConnectionString))
             {
-                Customer cus = new Customer();
                 cus = con.Query<Customer>(sqlGetAccount, new { email, pass }).FirstOrDefault();
-                con.Close();
-                con.Dispose();
-                return cus;
-
             }
-
+            return cus;
         }
         public string GetSaltFromCustomerByEmail(string email)
         {

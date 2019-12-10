@@ -30,12 +30,15 @@ namespace Biograf_Booking_Server.Controller
             Customer cus = new Customer();
             try
             {
-                cus = LogOn(email, HashedPass);
-                
+                cus = LogOn(email, HashedPass);      
             }
             catch (Exception)
             {
                 cus = null;
+            }
+            if (cus!=null)
+            {
+                cus = ICustRepo.GetCustomerByEmail(cus.Email);
             }
             return cus;
         }
