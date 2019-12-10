@@ -14,12 +14,43 @@ namespace Biograf_Booking_Web.Service
             using (PersonServiceClient proxy = new PersonServiceClient())
             {
                 Customer C = proxy.LoginCustomer(Email, Password);
-                Debug.WriteLine("obj values are  " + C.Username +" "+ C.CustomerId +" " + C.Email +" "+ C.FName +" "+ C.LName +" "+ C.Password +" "+ C.PhoneNo);
                 Models.Customer Cc = new Models.Customer();
-                Cc.Email = C.Email;
-                Cc.Password = C.Password;
-                Cc.CustomerId = C.CustomerId;
-                return Cc;
+                if (C != null)
+                {
+                    
+                    Cc.Email = C.Email;
+                    Cc.Password = C.Password;
+                    Cc.CustomerId = C.CustomerId;
+                    return Cc;
+                }
+                else
+                {
+                    return null;
+                }
+               
+            }
+        }
+
+        public bool InsertCustomer(Models.Customer C)
+        {
+            using (PersonServiceClient proxy = new PersonServiceClient())
+            {
+                if (C != null)
+                {
+                    Customer Cc = new Customer();
+                    Cc.Email = C.Email;
+                    Cc.Password = C.Password;
+                    Cc.FName = C.FName;
+                    Cc.LName = C.LName;
+                    Cc.PhoneNo = C.PhoneNo;
+                    proxy.InsertCustomer(Cc);
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+                
             }
         }
     }

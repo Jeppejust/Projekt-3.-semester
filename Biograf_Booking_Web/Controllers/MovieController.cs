@@ -20,6 +20,7 @@ namespace Biograf_Booking_Web.Controllers
         public ActionResult ShowTimes(int id)
         {
             Movie m = MovService.GetMovie(id);
+            Session["MovieId"] = m.MovieId;
             return View(m);
         }
         public ActionResult Movies()
@@ -49,7 +50,11 @@ namespace Biograf_Booking_Web.Controllers
                         Session["CustomerId"] = obj.CustomerId.ToString();
                         Session["Email"] = obj.Email.ToString();
                         return RedirectToAction("SeatBooking");
-                    }
+                    } else
+                {
+                    Debug.WriteLine(c.FName + " " +c.LName + " " +c.PhoneNo + " "+c.Password + " " + c.Email);
+                    cService.InsertCustomer(c);
+                }
                 
             }
             return View(c);      
@@ -69,7 +74,7 @@ namespace Biograf_Booking_Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult SeatBooking( int id, Reservation r, string reservedSeats)
+        public ActionResult SeatBooking(Reservation r, string reservedSeats)
         {
             r.Seats = new List<Seat>();
             string[] foundReservedSeats = null; ;
@@ -95,19 +100,23 @@ namespace Biograf_Booking_Web.Controllers
             else
             {
                 // what to do if no reservations
-                Response.Write("Ingen sæder markeret");
-                
+                return RedirectToAction("SeatBooking");
             }
             
             r.Time = 1500;
-            r.MovieId = id;
+            r.MovieId = Int32.Parse(Session["MovieId"].ToString());
             r.Date = DateTime.Now;
-            string cId = Session["CustomerId"].ToString();
-            r.CustomerId = Int32.Parse(cId);
-            Debug.WriteLine(r.CustomerId);
-            ResService.InsertReservation(r);
+            r.CustomerId = Int32.Parse(Session["CustomerId"].ToString());
 
-            return RedirectToAction("ShowMovies");
+            if (ResService.InsertReservation(r) == false)
+            {
+                return RedirectToAction("SeatBooking");
+            }else
+            {
+                return RedirectToAction("ShowMovies");
+            }
+
+           
         }
 
     }

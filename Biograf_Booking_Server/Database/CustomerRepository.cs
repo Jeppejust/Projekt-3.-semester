@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Dapper;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 
 namespace Biograf_Booking_Server.Database
 {
@@ -70,8 +71,9 @@ namespace Biograf_Booking_Server.Database
                     con.Execute(SqlInsertCustomer, new { FName = c.FName, LName = c.LName, PhoneNo = c.PhoneNo, Email = c.Email, Password = c.Password, Salt = c.Salt });
                     inserted = true;
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
+                    Debug.WriteLine(e.Message);
                     inserted = false;
                 }
 
