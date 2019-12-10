@@ -8,6 +8,7 @@ using System.Data.SqlClient;
 using System.Data;
 using Biograf_Booking_Server.Model;
 using System.Data.SqlTypes;
+using System.Diagnostics;
 
 namespace Biograf_Booking_Server.Database
 {
@@ -35,6 +36,7 @@ namespace Biograf_Booking_Server.Database
 
         public bool InsertReservation(Reservation r)
         {
+            Debug.WriteLine(r.MovieId + " " + r.ReservationId + " " + r.CustomerId + " " + r.Date);
             string SqlInsertReservation = "insert into tblReservation (ResDate, ResTime, CustomerId, MovieId) values (@ResDate, @ResTime, @CustomerId, @MovieId)";
             DateTime CurrDateTime = r.Date;            
             string CurrTime = CurrDateTime.ToString("HH:mm:ss");
@@ -47,8 +49,9 @@ namespace Biograf_Booking_Server.Database
                     con.Execute(SqlInsertReservation, new { ResDate = CurrDate, ResTime = CurrTime, CustomerId = r.CustomerId, MovieId = r.MovieId });
                     Inserted = true;
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
+                    Debug.WriteLine(e.Message);
                     Inserted = false;
                 }
                 

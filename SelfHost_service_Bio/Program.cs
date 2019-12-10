@@ -25,6 +25,7 @@ namespace SelfHost_service_Bio
             catch (Exception e)
             {
                 Debug.WriteLine(e.Message);
+                Console.ReadKey();
             }
 
         }
