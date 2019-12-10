@@ -7,9 +7,10 @@
 <h2>Login</h2>
 <body style="background-color:dimgrey">
 
-    @using (Html.BeginForm())
+    @using (Html.BeginForm("Login", "Movie", FormMethod.Post))
     {
         @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
 
         <div class="form-horizontal">
             <h4>Customer</h4>
@@ -35,7 +36,7 @@
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
                     <input type="submit" value="Log ind" class="btn btn-default" />
-                    
+
                 </div>
             </div>
         </div>
@@ -44,7 +45,7 @@
     <div>
         @Html.ActionLink("Back to List", "Index")
     </div>
-    </body>
+</body>
     @section Scripts {
         @Scripts.Render("~/bundles/jqueryval")
     }

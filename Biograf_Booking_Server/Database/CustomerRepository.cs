@@ -27,7 +27,7 @@ namespace Biograf_Booking_Server.Database
         }
         public Customer LogOn(string email, string pass)
         {
-            string sqlGetAccount = "SELECT DISTINCT Email, Password, Salt FROM tblCustomer WHERE Email = @email AND Password = @pass";
+            string sqlGetAccount = "SELECT DISTINCT Email, Password, Salt, CustomerId  FROM tblCustomer WHERE Email = @email AND Password = @pass";
             using (con = new SqlConnection(DataBase.DbConnectionString))
             {
                 Customer cus = new Customer();

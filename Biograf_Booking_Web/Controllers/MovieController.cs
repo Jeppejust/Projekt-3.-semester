@@ -37,29 +37,39 @@ namespace Biograf_Booking_Web.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult LogIn(Customer c)
         {
-            cService.Login(c.Email, c.Password);
-            if (cService.Login(c.Email, c.Password) != null)
+
+            if (ModelState.IsValid)
             {
-                return RedirectToAction("SeatBooking");
+                    var obj = cService.Login(c.Email, c.Password);
+                    if (obj != null)
+                    {
+                        Session["CustomerId"] = obj.CustomerId.ToString();
+                        Session["Email"] = obj.Email.ToString();
+                        return RedirectToAction("SeatBooking");
+                    }
+                
             }
-            else
-            {
-                return RedirectToAction("ShowMovies");
-            }
-            
+            return View(c);      
         }
 
         public ActionResult SeatBooking()
         {
-
-            return View(sService.FindSeatsByHallId(1)); ;
+            if (Session["Email"] != null)
+            {
+                return View(sService.FindSeatsByHallId(1));
+            }
+            else
+            {
+                return RedirectToAction("Login");
+            }
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult SeatBooking(int Time, int id, Reservation r, string reservedSeats)
+        public ActionResult SeatBooking( int id, Reservation r, string reservedSeats)
         {
             r.Seats = new List<Seat>();
             string[] foundReservedSeats = null; ;
@@ -89,11 +99,12 @@ namespace Biograf_Booking_Web.Controllers
                 
             }
             
-            r.Time = Time;
+            r.Time = 1500;
             r.MovieId = id;
             r.Date = DateTime.Now;
-            r.CustomerId = 3;
-
+            string cId = Session["CustomerId"].ToString();
+            r.CustomerId = Int32.Parse(cId);
+            Debug.WriteLine(r.CustomerId);
             ResService.InsertReservation(r);
 
             return RedirectToAction("ShowMovies");
