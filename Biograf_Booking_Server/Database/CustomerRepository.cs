@@ -88,7 +88,17 @@ namespace Biograf_Booking_Server.Database
             string SqlGetCustomerByEmail = "select * from tblCustomer where Email = @Email";
             using (con = new SqlConnection(DataBase.DbConnectionString))
             {
-                c = con.Query<Customer>(SqlGetCustomerByEmail, new { email }).FirstOrDefault();
+                try
+                {
+                    c = con.Query<Customer>(SqlGetCustomerByEmail, new { email }).Single();
+
+                }
+                catch (Exception)
+                {
+
+                    c = null;
+                }
+                
             }
             return c;
         }

@@ -46,7 +46,8 @@ namespace Biograf_Booking_Server.Service
 
         [OperationContract]
         Customer LoginCustomer(string email, string pass);
+
         [OperationContract]
         Customer InsertCustomer(Customer c);
-    }
+    } 
 }
