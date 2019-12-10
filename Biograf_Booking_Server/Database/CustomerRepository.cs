@@ -19,7 +19,7 @@ namespace Biograf_Booking_Server.Database
             using (con = new SqlConnection(DataBase.DbConnectionString))
             {
                 List<Customer> Customers = new List<Customer>();
-                con.Open();
+                
 
                 Customers = con.Query<Customer>(sqlGetAllCustomers).ToList();
                 return Customers;
@@ -32,8 +32,7 @@ namespace Biograf_Booking_Server.Database
             {
                 Customer cus = new Customer();
                 cus = con.Query<Customer>(sqlGetAccount, new { email, pass }).FirstOrDefault();
-                con.Close();
-                con.Dispose();
+                
                 return cus;
 
             }
@@ -45,7 +44,7 @@ namespace Biograf_Booking_Server.Database
             string sqlGetSaltByEmail = "select * from tblCustomer where Email = @Email";
             using (con = new SqlConnection(DataBase.DbConnectionString))
             {
-                con.Open();
+                
                 Customer cus = new Customer();
                 
                 try
@@ -57,8 +56,7 @@ namespace Biograf_Booking_Server.Database
                 {
                     s = "";                    
                 }
-                con.Close();
-                con.Dispose();
+                
                 
             }
             return s;
