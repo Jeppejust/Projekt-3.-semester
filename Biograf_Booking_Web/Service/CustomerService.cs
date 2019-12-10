@@ -8,12 +8,16 @@ namespace Biograf_Booking_Web.Service
 {
     public class CustomerService
     {
-        public bool Login(string Email, string password)
+        public Models.Customer Login(string Email, string Password)
         {
             using (PersonServiceClient proxy = new PersonServiceClient())
             {
-                bool verified = proxy.LogOn(Email, password);
-                return verified;
+                Customer C = proxy.LoginCustomer(Email, Password);
+                Models.Customer Cc = new Models.Customer();
+                Cc.Email = C.Email;
+                Cc.Password = C.Password;
+                Cc.CustomerId = C.CustomerId;
+                return Cc;
             }
         }
     }

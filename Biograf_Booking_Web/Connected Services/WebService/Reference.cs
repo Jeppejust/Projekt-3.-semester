@@ -771,6 +771,18 @@ namespace Biograf_Booking_Web.WebService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPersonService/FindSeatsByHallId", ReplyAction="http://tempuri.org/IPersonService/FindSeatsByHallIdResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<Biograf_Booking_Web.WebService.Seat>> FindSeatsByHallIdAsync(int HallId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPersonService/LoginCustomer", ReplyAction="http://tempuri.org/IPersonService/LoginCustomerResponse")]
+        Biograf_Booking_Web.WebService.Customer LoginCustomer(string email, string pass);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPersonService/LoginCustomer", ReplyAction="http://tempuri.org/IPersonService/LoginCustomerResponse")]
+        System.Threading.Tasks.Task<Biograf_Booking_Web.WebService.Customer> LoginCustomerAsync(string email, string pass);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPersonService/InsertCustomer", ReplyAction="http://tempuri.org/IPersonService/InsertCustomerResponse")]
+        Biograf_Booking_Web.WebService.Customer InsertCustomer(Biograf_Booking_Web.WebService.Customer c);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPersonService/InsertCustomer", ReplyAction="http://tempuri.org/IPersonService/InsertCustomerResponse")]
+        System.Threading.Tasks.Task<Biograf_Booking_Web.WebService.Customer> InsertCustomerAsync(Biograf_Booking_Web.WebService.Customer c);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -886,6 +898,22 @@ namespace Biograf_Booking_Web.WebService {
         
         public System.Threading.Tasks.Task<System.Collections.Generic.List<Biograf_Booking_Web.WebService.Seat>> FindSeatsByHallIdAsync(int HallId) {
             return base.Channel.FindSeatsByHallIdAsync(HallId);
+        }
+        
+        public Biograf_Booking_Web.WebService.Customer LoginCustomer(string email, string pass) {
+            return base.Channel.LoginCustomer(email, pass);
+        }
+        
+        public System.Threading.Tasks.Task<Biograf_Booking_Web.WebService.Customer> LoginCustomerAsync(string email, string pass) {
+            return base.Channel.LoginCustomerAsync(email, pass);
+        }
+        
+        public Biograf_Booking_Web.WebService.Customer InsertCustomer(Biograf_Booking_Web.WebService.Customer c) {
+            return base.Channel.InsertCustomer(c);
+        }
+        
+        public System.Threading.Tasks.Task<Biograf_Booking_Web.WebService.Customer> InsertCustomerAsync(Biograf_Booking_Web.WebService.Customer c) {
+            return base.Channel.InsertCustomerAsync(c);
         }
     }
 }

@@ -40,7 +40,7 @@ namespace Biograf_Booking_Web.Controllers
         public ActionResult LogIn(Customer c)
         {
             cService.Login(c.Email, c.Password);
-            if (cService.Login(c.Email, c.Password))
+            if (cService.Login(c.Email, c.Password) != null)
             {
                 return RedirectToAction("SeatBooking");
             }
@@ -51,10 +51,10 @@ namespace Biograf_Booking_Web.Controllers
             
         }
 
-        public ActionResult SeatBooking(int id)
+        public ActionResult SeatBooking()
         {
 
-            return View(sService.FindSeatsByHallId(id)); ;
+            return View(sService.FindSeatsByHallId(1)); ;
         }
 
         [HttpPost]
