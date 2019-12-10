@@ -21,10 +21,10 @@
                         <ol class="seats" type="A">
                             @for (int i = 1; i < 13; i++)
                             {
-                                
+
                                 var booked = "";
                                 var v = i - 1;
-                               
+
                                 if (Model[v].booked)
                                 {
                                     booked = "disabled";
@@ -42,10 +42,10 @@
                         <ol class="seats" type="A">
                             @for (int i = 13; i < 25; i++)
                             {
-                                
+
                                 var booked = "";
                                 var v = i - 1;
-                                
+
                                 if (Model[v].booked)
                                 {
                                     booked = "disabled";
@@ -62,10 +62,10 @@
                         <ol class="seats" type="A">
                             @for (int i = 25; i < 37; i++)
                             {
-                                
+
                                 var booked = "";
                                 var v = i - 1;
-                               
+
                                 if (Model[v].booked)
                                 {
                                     booked = "disabled";
@@ -82,10 +82,10 @@
                         <ol class="seats" type="A">
                             @for (int i = 37; i < 49; i++)
                             {
-                                
+
                                 var booked = "";
                                 var v = i - 1;
-                                
+
                                 if (Model[v].booked)
                                 {
                                     booked = "disabled";
@@ -105,16 +105,16 @@
 
                                 var booked = "";
                                 var v = i - 1;
-                               
+
                                 if (Model[v].booked)
                                 {
                                     booked = "disabled";
                                 }
-                            <li class="seat">
-                                <input type="checkbox" id=@i value="0" name="seat" onclick="seatchange(@i)" @booked />
-                                <label for="@i">@i</label>
-                            </li>
-                                
+                                <li class="seat">
+                                    <input type="checkbox" id=@i value="0" name="seat" onclick="seatchange(@i)" @booked />
+                                    <label for="@i">@i</label>
+                                </li>
+
                             }
                         </ol>
                     </li>
@@ -125,7 +125,7 @@
 
                                 var booked = "";
                                 var v = i - 1;
-                             
+
                                 if (Model[v].booked)
                                 {
                                     booked = "disabled";
@@ -145,7 +145,7 @@
 
                                 var booked = "";
                                 var v = i - 1;
-                                
+
                                 if (Model[v].booked)
                                 {
                                     booked = "disabled";
@@ -161,7 +161,7 @@
                 </ol>
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Create" class="btn btn-default" />
+                        <input type="submit" value="Create" class="btn btn-default" onclick="VerifyReservation(true)" />
                     </div>
                 </div>
             </div>

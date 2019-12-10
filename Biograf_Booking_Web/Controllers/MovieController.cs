@@ -14,6 +14,7 @@ namespace Biograf_Booking_Web.Controllers
         private MovieService MovService = new MovieService();
         private ReservationService ResService = new ReservationService();
         private SeatService sService = new SeatService();
+        private CustomerService cService = new CustomerService();
         
         // GET: Movies
         public ActionResult ShowTimes(int id)
@@ -28,6 +29,26 @@ namespace Biograf_Booking_Web.Controllers
         public ActionResult ShowMovies()
         {
             return View(MovService.GetMovies());
+        }
+
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult LogIn(Customer c)
+        {
+            cService.Login(c.Email, c.Password);
+            if (cService.Login(c.Email, c.Password))
+            {
+                return RedirectToAction("SeatBooking");
+            }
+            else
+            {
+                return RedirectToAction("ShowMovies");
+            }
+            
         }
 
         public ActionResult SeatBooking(int id)
@@ -65,14 +86,16 @@ namespace Biograf_Booking_Web.Controllers
             {
                 // what to do if no reservations
                 Response.Write("Ingen sæder markeret");
+                
             }
-
+            
             r.Time = Time;
             r.MovieId = id;
             r.Date = DateTime.Now;
             r.CustomerId = 3;
-            
+
             ResService.InsertReservation(r);
+
             return RedirectToAction("ShowMovies");
         }
 
