@@ -137,7 +137,7 @@ namespace Biograf_Booking_Client.View
                     }
                     else
                     {
-                        MessageBox.Show("Noget gik galt");
+                        MessageBox.Show("Sædet er desværre allerede blevet reserveret af en anden.");
                     }
                     break;
                 case MessageBoxResult.No:
