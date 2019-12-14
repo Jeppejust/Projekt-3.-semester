@@ -251,5 +251,6 @@ namespace Test_Biograf_Booking
             }
             Assert.IsNotNull(c);
         }
+
     }
 }

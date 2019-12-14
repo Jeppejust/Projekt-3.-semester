@@ -99,6 +99,7 @@
     <Compile Include="Controller\MovieCtrl.cs" />
     <Compile Include="Controller\ReservationCtrl.cs" />
     <Compile Include="Controller\SeatCtrl.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Model\Customer.cs" />
     <Compile Include="Model\Employee.cs" />
     <Compile Include="Model\Hall.cs" />

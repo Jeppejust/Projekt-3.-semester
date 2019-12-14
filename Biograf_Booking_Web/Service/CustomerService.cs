@@ -17,7 +17,7 @@ namespace Biograf_Booking_Web.Service
                 Models.Customer Cc = new Models.Customer();
                 if (C != null)
                 {
-                    
+
                     Cc.Email = C.Email;
                     Cc.Password = C.Password;
                     Cc.CustomerId = C.CustomerId;
