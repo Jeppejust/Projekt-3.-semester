@@ -113,7 +113,7 @@ namespace Biograf_Booking_Web.Controllers
                 {
                     if (int.TryParse(aReservedSeat.ToString(), out int seatNum))
                     {
-                        Debug.WriteLine(seatNum);
+                        
                         Seat s = new Seat();
                         s.SeatId = seatNum;
                         r.Seats.Add(s);

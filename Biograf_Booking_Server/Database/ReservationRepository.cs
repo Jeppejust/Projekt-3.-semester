@@ -36,7 +36,7 @@ namespace Biograf_Booking_Server.Database
 
         public bool InsertReservation(Reservation r)
         {
-            Debug.WriteLine(r.MovieId + " " + r.ReservationId + " " + r.CustomerId + " " + r.Date);
+            
             string SqlInsertReservation = "insert into tblReservation (ResDate, ResTime, CustomerId, MovieId) values (@ResDate, @ResTime, @CustomerId, @MovieId)";
             DateTime CurrDateTime = r.Date;            
             string CurrTime = CurrDateTime.ToString("HH:mm:ss");
