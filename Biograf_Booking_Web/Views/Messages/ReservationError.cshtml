@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "Reservationsfejl";
+}
+
+
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ReservationError</title>
+</head>
+<body style="background-color:dimgrey">
+    <div>
+        @Html.Label("Din reservation gik desværre ikke igennem, prøv igen")
+    </div>
+    <p>
+        @Html.ActionLink("Tilbage","SeatBooking","Movie")
+    </p>
+</body>
+</html>
