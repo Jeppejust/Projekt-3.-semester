@@ -32,7 +32,6 @@ namespace Biograf_Booking_Server.Database
             using (con = new SqlConnection(DataBase.DbConnectionString))
             {
                 Movie movie = new Movie();
-                con.Open();
 
                 try
                 {
@@ -42,8 +41,7 @@ namespace Biograf_Booking_Server.Database
                 {
                     movie = null;
                 }
-                con.Close();
-                con.Dispose();
+
                 return movie;
             }
         }
