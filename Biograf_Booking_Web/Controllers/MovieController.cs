@@ -15,12 +15,13 @@ namespace Biograf_Booking_Web.Controllers
         private ReservationService ResService = new ReservationService();
         private SeatService sService = new SeatService();
         private CustomerService cService = new CustomerService();
-        
+
         // GET: Movies
         public ActionResult ShowTimes(int id)
         {
             Movie m = MovService.GetMovie(id);
             Session["MovieId"] = m.MovieId;
+            Session["Title"] = m.Title;
             return View(m);
         }
         public ActionResult Movies()
@@ -42,27 +43,47 @@ namespace Biograf_Booking_Web.Controllers
         public ActionResult LogIn(Customer c)
         {
 
-            if (ModelState.IsValid)
+            if (ModelState.IsValidField("Email") && ModelState.IsValidField("Password"))
             {
-                    var obj = cService.Login(c.Email, c.Password);
-                    if (obj != null)
-                    {
-                        Session["CustomerId"] = obj.CustomerId.ToString();
-                        Session["Email"] = obj.Email.ToString();
-                        return RedirectToAction("SeatBooking");
-                    } else
-                {
-                    Debug.WriteLine(c.FName + " " +c.LName + " " +c.PhoneNo + " "+c.Password + " " + c.Email);
-                    cService.InsertCustomer(c);
-                }
-                
+                var obj = cService.Login(c.Email, c.Password);
+                    Session["CustomerId"] = obj.CustomerId.ToString();
+                    Session["PhoneNo"] = obj.PhoneNo.ToString();
+                    Session["FName"] = obj.FName.ToString();
+                    Session["LName"] = obj.LName.ToString();
+                    return RedirectToAction("SeatBooking");
             }
-            return View(c);      
+            return View();
         }
 
-        public ActionResult SeatBooking()
+        public ActionResult Registrer()
         {
-            if (Session["Email"] != null)
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Registrer(Customer c)
+        {
+            if (ModelState.IsValid)
+            {
+                cService.InsertCustomer(c);
+                c = cService.Login(c.Email, c.Password);
+                Session["CustomerId"] = c.CustomerId.ToString();
+                Session["FName"] = c.FName;
+                Session["LName"] = c.LName;
+                Session["PhoneNo"] = c.PhoneNo.ToString();
+
+                return RedirectToAction("SeatBooking");
+            }
+            return View();
+        }
+    
+
+
+
+    public ActionResult SeatBooking()
+        {
+            if (Session["CustomerId"] != null)
             {
                 return View(sService.FindSeatsByHallId(1));
             }
@@ -81,11 +102,13 @@ namespace Biograf_Booking_Web.Controllers
             // if reservation string (hidden field in form) has real content
             if (!string.IsNullOrWhiteSpace(reservedSeats))
             {
+                Session["BookedSeats"] = reservedSeats;
                 foundReservedSeats = reservedSeats.Split(':');
             }
             // Handle the reservations in some way
             if (foundReservedSeats != null && foundReservedSeats.Length > 0)
             {
+                
                 foreach (var aReservedSeat in foundReservedSeats)
                 {
                     if (int.TryParse(aReservedSeat.ToString(), out int seatNum))
@@ -100,7 +123,8 @@ namespace Biograf_Booking_Web.Controllers
             else
             {
                 // what to do if no reservations
-                return RedirectToAction("SeatBooking");
+                return RedirectToAction("SeatError", "Messages", new { area = "" });
+                
             }
             
             r.Time = 1500;
@@ -110,10 +134,11 @@ namespace Biograf_Booking_Web.Controllers
 
             if (ResService.InsertReservation(r) == false)
             {
-                return RedirectToAction("SeatBooking");
-            }else
+                return RedirectToAction("ReservationError", "Messages", new { area = "" });
+            }
+            else
             {
-                return RedirectToAction("ShowMovies");
+                return RedirectToAction("Confirmation", "Messages", new { area = "" });
             }
 
            

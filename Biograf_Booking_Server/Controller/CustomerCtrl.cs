@@ -25,11 +25,12 @@ namespace Biograf_Booking_Server.Controller
         }
         public Customer ComparePassword(string email, string pass)
         {
-            string salt = ICustRepo.GetSaltFromCustomerByEmail(email);
-            string HashedPass = GenerateSHA256Hash(pass, salt);
+            
             Customer cus = new Customer();
             try
             {
+                string salt = ICustRepo.GetSaltFromCustomerByEmail(email);
+                string HashedPass = GenerateSHA256Hash(pass, salt);
                 cus = LogOn(email, HashedPass);      
             }
             catch (Exception)

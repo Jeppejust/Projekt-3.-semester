@@ -48,10 +48,19 @@ namespace Biograf_Booking_Server.Database
                 try
                 {
                     cus = con.Query<Customer>(sqlGetSaltByEmail, new { email }).FirstOrDefault();
-                    s = cus.Salt;
+                    if (cus.Salt == null)
+                    {
+                        s = "";
+                    }
+                    else
+                    {
+                        s = cus.Salt;
+                    }
+                    
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
+                    Debug.WriteLine(e.Message);
                     s = "";                    
                 }
                 con.Close();
