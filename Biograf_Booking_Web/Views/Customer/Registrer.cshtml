@@ -7,7 +7,7 @@
 <h2>Du kan Registrer her</h2>
 <body style="background-color:dimgrey">
 
-    @using (Html.BeginForm("Registrer", "Movie", FormMethod.Post))
+    @using (Html.BeginForm("Registrer", "Customer", FormMethod.Post))
     {
 
         @Html.AntiForgeryToken()
@@ -64,7 +64,7 @@
         </div>
     }
     <p>
-        @Html.ActionLink("Tilbage til login","Login", "Movie")
+        @Html.ActionLink("Tilbage til login","Login", "Customer")
     </p>
 </body>
 @section Scripts {

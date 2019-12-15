@@ -190,6 +190,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\MessagesController.cs" />
     <Compile Include="Controllers\MovieController.cs" />
     <Compile Include="Controllers\ReservationController.cs" />
@@ -304,15 +305,13 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\Movie\Movies.cshtml" />
     <Content Include="Views\Movie\ShowMovies.cshtml" />
-    <Content Include="Views\Movie\ShowMovie.cshtml" />
-    <Content Include="Views\Movie\Login.cshtml" />
+    <Content Include="Views\Customer\Login.cshtml" />
     <Content Include="Views\Messages\SeatError.cshtml" />
     <Content Include="Views\Messages\ReservationError.cshtml" />
     <Content Include="Views\Messages\Confirmation.cshtml" />
-    <Content Include="Views\Movie\Registrer.cshtml" />
-    <None Include="Views\Movie\SeatBooking.cshtml" />
+    <Content Include="Views\Customer\Registrer.cshtml" />
+    <None Include="Views\Reservation\SeatBooking.cshtml" />
     <None Include="Views\Movie\SeatBooking.cshtml.Bak" />
-    <Content Include="Views\Reservation\Create.cshtml" />
     <Content Include="Views\Movie\ShowTimes.cshtml" />
   </ItemGroup>
   <ItemGroup>
