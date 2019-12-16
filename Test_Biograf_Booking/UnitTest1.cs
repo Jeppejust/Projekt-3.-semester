@@ -12,7 +12,7 @@ namespace Test_Biograf_Booking
         [TestMethod]
         public void TestLoginEmployeeSuccesful()
         {
-            //arrenge
+            //arrange
             string username = "admin";
             string pass = "admin";
             bool verified = false;
