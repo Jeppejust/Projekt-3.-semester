@@ -73,6 +73,18 @@
   <wsdl:message name="IPersonService_FindSeatsByHallId_OutputMessage">
     <wsdl:part name="parameters" element="tns:FindSeatsByHallIdResponse" />
   </wsdl:message>
+  <wsdl:message name="IPersonService_LoginCustomer_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoginCustomer" />
+  </wsdl:message>
+  <wsdl:message name="IPersonService_LoginCustomer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPersonService_InsertCustomer_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertCustomer" />
+  </wsdl:message>
+  <wsdl:message name="IPersonService_InsertCustomer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertCustomerResponse" />
+  </wsdl:message>
   <wsdl:portType name="IPersonService">
     <wsdl:operation name="GetEmployees">
       <wsdl:input wsaw:Action="http://tempuri.org/IPersonService/GetEmployees" message="tns:IPersonService_GetEmployees_InputMessage" />
@@ -117,6 +129,14 @@
     <wsdl:operation name="FindSeatsByHallId">
       <wsdl:input wsaw:Action="http://tempuri.org/IPersonService/FindSeatsByHallId" message="tns:IPersonService_FindSeatsByHallId_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IPersonService/FindSeatsByHallIdResponse" message="tns:IPersonService_FindSeatsByHallId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoginCustomer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPersonService/LoginCustomer" message="tns:IPersonService_LoginCustomer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPersonService/LoginCustomerResponse" message="tns:IPersonService_LoginCustomer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertCustomer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPersonService/InsertCustomer" message="tns:IPersonService_InsertCustomer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPersonService/InsertCustomerResponse" message="tns:IPersonService_InsertCustomer_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IPersonService" type="tns:IPersonService">
@@ -213,6 +233,24 @@
     </wsdl:operation>
     <wsdl:operation name="FindSeatsByHallId">
       <soap:operation soapAction="http://tempuri.org/IPersonService/FindSeatsByHallId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoginCustomer">
+      <soap:operation soapAction="http://tempuri.org/IPersonService/LoginCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertCustomer">
+      <soap:operation soapAction="http://tempuri.org/IPersonService/InsertCustomer" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

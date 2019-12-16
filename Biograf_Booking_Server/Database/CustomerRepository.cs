@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Dapper;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 
 namespace Biograf_Booking_Server.Database
 {
@@ -19,7 +20,7 @@ namespace Biograf_Booking_Server.Database
             using (con = new SqlConnection(DataBase.DbConnectionString))
             {
                 List<Customer> Customers = new List<Customer>();
-                
+                con.Open();
 
                 Customers = con.Query<Customer>(sqlGetAllCustomers).ToList();
                 return Customers;
@@ -27,16 +28,13 @@ namespace Biograf_Booking_Server.Database
         }
         public Customer LogOn(string email, string pass)
         {
-            string sqlGetAccount = "SELECT DISTINCT Email, Password, Salt FROM tblCustomer WHERE Email = @email AND Password = @pass";
+            string sqlGetAccount = "SELECT DISTINCT Email, Password FROM tblCustomer WHERE Email = @email AND Password = @pass";
+            Customer cus = new Customer();
             using (con = new SqlConnection(DataBase.DbConnectionString))
             {
-                Customer cus = new Customer();
                 cus = con.Query<Customer>(sqlGetAccount, new { email, pass }).FirstOrDefault();
-                
-                return cus;
-
             }
-
+            return cus;
         }
         public string GetSaltFromCustomerByEmail(string email)
         {
@@ -44,7 +42,7 @@ namespace Biograf_Booking_Server.Database
             string sqlGetSaltByEmail = "select * from tblCustomer where Email = @Email";
             using (con = new SqlConnection(DataBase.DbConnectionString))
             {
-                
+                con.Open();
                 Customer cus = new Customer();
                 
                 try
@@ -56,7 +54,8 @@ namespace Biograf_Booking_Server.Database
                 {
                     s = "";                    
                 }
-                
+                con.Close();
+                con.Dispose();
                 
             }
             return s;
@@ -72,8 +71,9 @@ namespace Biograf_Booking_Server.Database
                     con.Execute(SqlInsertCustomer, new { FName = c.FName, LName = c.LName, PhoneNo = c.PhoneNo, Email = c.Email, Password = c.Password, Salt = c.Salt });
                     inserted = true;
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
+                    Debug.WriteLine(e.Message);
                     inserted = false;
                 }
 

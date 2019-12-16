@@ -20,6 +20,7 @@ namespace Biograf_Booking_Web.Controllers
         public ActionResult ShowTimes(int id)
         {
             Movie m = MovService.GetMovie(id);
+            Session["MovieId"] = m.MovieId;
             return View(m);
         }
         public ActionResult Movies()
@@ -37,29 +38,43 @@ namespace Biograf_Booking_Web.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult LogIn(Customer c)
         {
-            cService.Login(c.Email, c.Password);
-            if (cService.Login(c.Email, c.Password))
+
+            if (ModelState.IsValid)
             {
-                return RedirectToAction("SeatBooking");
+                    var obj = cService.Login(c.Email, c.Password);
+                    if (obj != null)
+                    {
+                        Session["CustomerId"] = obj.CustomerId.ToString();
+                        Session["Email"] = obj.Email.ToString();
+                        return RedirectToAction("SeatBooking");
+                    } else
+                {
+                    Debug.WriteLine(c.FName + " " +c.LName + " " +c.PhoneNo + " "+c.Password + " " + c.Email);
+                    cService.InsertCustomer(c);
+                }
+                
+            }
+            return View(c);      
+        }
+
+        public ActionResult SeatBooking()
+        {
+            if (Session["Email"] != null)
+            {
+                return View(sService.FindSeatsByHallId(1));
             }
             else
             {
-                return RedirectToAction("ShowMovies");
+                return RedirectToAction("Login");
             }
-            
-        }
-
-        public ActionResult SeatBooking(int id)
-        {
-
-            return View(sService.FindSeatsByHallId(id)); ;
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult SeatBooking(int Time, int id, Reservation r, string reservedSeats)
+        public ActionResult SeatBooking(Reservation r, string reservedSeats)
         {
             r.Seats = new List<Seat>();
             string[] foundReservedSeats = null; ;
@@ -85,18 +100,23 @@ namespace Biograf_Booking_Web.Controllers
             else
             {
                 // what to do if no reservations
-                Response.Write("Ingen sæder markeret");
-                
+                return RedirectToAction("SeatBooking");
             }
             
-            r.Time = Time;
-            r.MovieId = id;
+            r.Time = 1500;
+            r.MovieId = Int32.Parse(Session["MovieId"].ToString());
             r.Date = DateTime.Now;
-            r.CustomerId = 3;
+            r.CustomerId = Int32.Parse(Session["CustomerId"].ToString());
 
-            ResService.InsertReservation(r);
+            if (ResService.InsertReservation(r) == false)
+            {
+                return RedirectToAction("SeatBooking");
+            }else
+            {
+                return RedirectToAction("ShowMovies");
+            }
 
-            return RedirectToAction("ShowMovies");
+           
         }
 
     }
