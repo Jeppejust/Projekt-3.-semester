@@ -222,17 +222,17 @@ namespace Test_Biograf_Booking
         [TestMethod]
         public void TestLoginCustomerMissingEmailAndPass()
         {
-            //arrenge
+            //Arrange
             string username = "";
             string pass = "";
             Customer customer = new Customer(); ;
             using (PersonService.PersonServiceClient proxy = new PersonService.PersonServiceClient())
             {
-                //act
+                //Act
                 customer = proxy.LoginCustomer(username, pass);
 
             }
-            //assert
+            //Assert
             Assert.IsNull(customer);
         }
         [TestMethod]
@@ -251,5 +251,6 @@ namespace Test_Biograf_Booking
             }
             Assert.IsNotNull(c);
         }
+
     }
 }

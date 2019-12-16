@@ -12,15 +12,13 @@ namespace Biograf_Booking_Web.Controllers
     public class MovieController : Controller
     {
         private MovieService MovService = new MovieService();
-        private ReservationService ResService = new ReservationService();
-        private SeatService sService = new SeatService();
-        private CustomerService cService = new CustomerService();
-        
+
         // GET: Movies
         public ActionResult ShowTimes(int id)
         {
             Movie m = MovService.GetMovie(id);
             Session["MovieId"] = m.MovieId;
+            Session["Title"] = m.Title;
             return View(m);
         }
         public ActionResult Movies()
@@ -30,93 +28,6 @@ namespace Biograf_Booking_Web.Controllers
         public ActionResult ShowMovies()
         {
             return View(MovService.GetMovies());
-        }
-
-        public ActionResult Login()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult LogIn(Customer c)
-        {
-
-            if (ModelState.IsValid)
-            {
-                    var obj = cService.Login(c.Email, c.Password);
-                    if (obj != null)
-                    {
-                        Session["CustomerId"] = obj.CustomerId.ToString();
-                        Session["Email"] = obj.Email.ToString();
-                        return RedirectToAction("SeatBooking");
-                    } else
-                {
-                    Debug.WriteLine(c.FName + " " +c.LName + " " +c.PhoneNo + " "+c.Password + " " + c.Email);
-                    cService.InsertCustomer(c);
-                }
-                
-            }
-            return View(c);      
-        }
-
-        public ActionResult SeatBooking()
-        {
-            if (Session["Email"] != null)
-            {
-                return View(sService.FindSeatsByHallId(1));
-            }
-            else
-            {
-                return RedirectToAction("Login");
-            }
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult SeatBooking(Reservation r, string reservedSeats)
-        {
-            r.Seats = new List<Seat>();
-            string[] foundReservedSeats = null; ;
-            // if reservation string (hidden field in form) has real content
-            if (!string.IsNullOrWhiteSpace(reservedSeats))
-            {
-                foundReservedSeats = reservedSeats.Split(':');
-            }
-            // Handle the reservations in some way
-            if (foundReservedSeats != null && foundReservedSeats.Length > 0)
-            {
-                foreach (var aReservedSeat in foundReservedSeats)
-                {
-                    if (int.TryParse(aReservedSeat.ToString(), out int seatNum))
-                    {
-                        Debug.WriteLine(seatNum);
-                        Seat s = new Seat();
-                        s.SeatId = seatNum;
-                        r.Seats.Add(s);
-                    }
-                }
-            }
-            else
-            {
-                // what to do if no reservations
-                return RedirectToAction("SeatBooking");
-            }
-            
-            r.Time = 1500;
-            r.MovieId = Int32.Parse(Session["MovieId"].ToString());
-            r.Date = DateTime.Now;
-            r.CustomerId = Int32.Parse(Session["CustomerId"].ToString());
-
-            if (ResService.InsertReservation(r) == false)
-            {
-                return RedirectToAction("SeatBooking");
-            }else
-            {
-                return RedirectToAction("ShowMovies");
-            }
-
-           
         }
 
     }

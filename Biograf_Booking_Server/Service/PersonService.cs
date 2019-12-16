@@ -76,7 +76,17 @@ namespace Biograf_Booking_Server.Service
         }
         public Customer LoginCustomer(string email, string pass)
         {
-            return CustCtrl.ComparePassword(email, pass);
+            Customer c =  new Customer();
+            try
+            {
+                 c = CustCtrl.ComparePassword(email, pass);
+            }
+            catch (Exception)
+            {
+
+                c = null;
+            }
+            return c;
         }
     }
 }

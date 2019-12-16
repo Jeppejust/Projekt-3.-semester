@@ -13,22 +13,33 @@ namespace Biograf_Booking_Web.Service
         {
             using (PersonServiceClient proxy = new PersonServiceClient())
             {
-                Customer C = proxy.LoginCustomer(Email, Password);
+                Customer customer = null;
                 Models.Customer Cc = new Models.Customer();
-                if (C != null)
+                if (Email != null || Password != null)
                 {
-                    
-                    Cc.Email = C.Email;
-                    Cc.Password = C.Password;
-                    Cc.CustomerId = C.CustomerId;
-                    return Cc;
+                    try
+                    {
+                        customer = proxy.LoginCustomer(Email, Password);
+                    }
+                    catch (System.NullReferenceException e)
+                    {
+                        Debug.WriteLine(e.Message);
+                        Cc = null;
+                    }
+
+                    if (customer != null)
+                    {
+
+                        Cc.Email = customer.Email;
+                        Cc.Password = customer.Password;
+                        Cc.CustomerId = customer.CustomerId;
+                        Cc.FName = customer.FName;
+                        Cc.LName = customer.LName;
+                        Cc.PhoneNo = customer.PhoneNo;
+                    }
                 }
-                else
-                {
-                    return null;
-                }
-               
-            }
+                return Cc;
+            } 
         }
 
         public bool InsertCustomer(Models.Customer C)
@@ -53,5 +64,7 @@ namespace Biograf_Booking_Web.Service
                 
             }
         }
+
+
     }
 }

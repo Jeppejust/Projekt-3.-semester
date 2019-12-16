@@ -1,0 +1,50 @@
+﻿@model Biograf_Booking_Web.Models.Reservation
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Confirmation</title>
+</head>
+<body style="background-color:dimgrey">
+    <div>
+        <h4>Tillykke din reservation er gået igennem</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.Label("Fornavn :", htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.DisplayName(Session["FName"].ToString())
+            </dt>
+
+            <dt>
+                @Html.Label("Efternavn :", htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.DisplayName(Session["LName"].ToString())
+            </dt>
+
+            <dt>
+                @Html.Label("Mobil Nr.", htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.DisplayText(Session["PhoneNo"].ToString())
+            </dt>
+
+            <dt>
+                @Html.Label("Film: ", htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.DisplayName(Session["Title"].ToString())
+            </dt>
+
+            <dt>
+                @Html.Label("Sæder ", htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.DisplayName(Session["BookedSeats"].ToString())
+            </dt>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Tilbage", "ShowMovies", "Movie")
+    </p>
+</body>
+</html>
